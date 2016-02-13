@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pistolSearch">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Pistol Search</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="app.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:900,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Alegreya:900italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div class="row" style="background: white;">
+		<div class="col-lg-11 col-sm-offset-1">
+			<h1><a href="#/" class="title">Pistol Search<small>.com</small></a></h1>
+			<div class="row">
+				<div class="col-lg-12">
+					<ul class="menu">
+					  <li><a href="#/">Power Search</a></li>
+						<li>|</li>
+						<li><a href="#/wizard">Newbie Search</a></li>
+						<li>|</li>
+					  <li><a href="#/about">About</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+
+
+		<div class="row">
+			<div ng-view class="view-frame"></div>
+		</div>
+	</div>
+
+
+	<script src="../node_modules/angular/angular.js"></script>
+	<script src="../node_modules/angular-route/angular-route.js"></script>
+	<script src="../node_modules/angular-animate/angular-animate.min.js"></script>
+	<script src="../node_modules/lodash/lodash.js"></script>
+
+	<script src="app.js"></script>
+	<script src="controllers.js"></script>
+	<script src="services.js"></script>
+	<script src="data.js"></script>
+
+</body>
+</html>

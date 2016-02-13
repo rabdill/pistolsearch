@@ -1,0 +1,44 @@
+<div class="row">
+	<div class="col-md-3 island">
+		<h2>{{ gun.manufacturer }} {{ gun.name }}</h2>
+		<div ng-if="gun.image">
+			<img ng-src="{{gun.image}}" class="img-responsive" />
+		</div>
+		<div>
+			<p>{{ gun.description }}
+		</div>
+	</div>
+	<div class="col-md-3 island">
+		<h3>Details</h3>
+		<ul>
+			<li ng-repeat="(key, value) in details"><strong>{{ key }}:</strong> {{ value }}
+			<li><strong>Other details:</strong><ul>
+				<li ng-repeat="s in printOptions">{{ s }}
+				</ul>
+		</ul>
+		<p ng-if="gun.link"><a ng-href="{{gun.link}}"><i>See manufacturer website for more.</i></a>
+	</div>
+	<div class="col-md-3 island">
+		<h3>Dimensions</h3>
+		<ul>
+			<li ng-repeat="(key, value) in gun.dimensions"><strong>{{ key }}:</strong> {{ value }} {{ measurementUnits[key] }}
+		</ul>
+	</div>
+
+	<div class="col-md-2 island" ng-if="families.length > 0">
+		<h3>Related</h3>
+		<dl>
+			<span ng-repeat="fam in families">
+				<dt>{{ fam.name }}:</dt>
+				<dd ng-repeat="member in fam.members | filter: {id: '!' + id} : true"><a ng-href="#/{{ member.id }}">{{ member.manufacturer }} {{ member.name }}</a></dd>
+			</span>
+		</dl>
+	</div>
+</div>
+<div class="row">
+<div ng-if="gun.youtube && gun.youtube.length > 0">
+	<h3>Media</h3>
+	<span ng-repeat="v in embed">
+		<span ng-bind-html="v"></span>
+	</div>
+</div>
