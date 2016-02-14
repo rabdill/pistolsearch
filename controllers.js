@@ -71,8 +71,6 @@ app.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', '$sce', 'G
 	$scope.id = $routeParams.id;
 	$scope.gun = _.find(GUNS, { 'id': $routeParams.id});
 
-	console.log($scope.variants);
-
 	// find the families that include the current gun:
 	var zzz = _.filter(FAMILIES, function(f) {
 		return _.includes(f.members, $routeParams.id);
@@ -109,6 +107,13 @@ app.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', '$sce', 'G
 		$scope.embed = [];
 		for(var i=0, v; v = $scope.gun.youtube[i]; i++) {
 			$scope.embed.push($sce.trustAsHtml('<iframe width="560" height="315" src="' + $scope.gun.youtube[i] + '" frameborder="0" allowfullscreen></iframe>'));
+		}
+	}
+
+	if($scope.gun.amazon) {
+		$scope.amazon = [];
+		for(var i=0, v; v = $scope.gun.amazon[i]; i++) {
+			$scope.amazon.push($sce.trustAsHtml('<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="' + $scope.gun.amazon[i] + '"></iframe>'));
 		}
 	}
 

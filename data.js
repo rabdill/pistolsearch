@@ -266,7 +266,12 @@ app.factory('GUNS', function() {
 				"https://www.youtube.com/embed/zkIGtwYwmmk",
 				"https://www.youtube.com/embed/V0-GcOZ3Hrc",
 				"https://www.youtube.com/embed/nswOxj0RT2s"
-			]
+			],
+			"amazon" : [
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B016ISRE88&asins=B016ISRE88&linkId=MCB4IHD36N4MAGVN&show_border=true&link_opens_in_new_window=true",
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B009KQ5R94&asins=B009KQ5R94&linkId=FGUJO3V7XYB4MWAL&show_border=true&link_opens_in_new_window=true",
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B004AO6BUK&asins=B004AO6BUK&linkId=FD5ZLEASLTOIHHRP&show_border=true&link_opens_in_new_window=true",
+			],
 		},
 		{
 			"id" : "Glock19-4",
@@ -297,7 +302,10 @@ app.factory('GUNS', function() {
 				"https://www.youtube.com/embed/nswOxj0RT2s",
 				"https://www.youtube.com/embed/V0-GcOZ3Hrc",
 				"https://www.youtube.com/embed/3z2w5VlPo3Y",
-			]
+			],
+			"amazon" : [
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B004AO6BUK&asins=B004AO6BUK&linkId=FD5ZLEASLTOIHHRP&show_border=true&link_opens_in_new_window=true"
+			],
 		},
 		{
 			"id" : "Glock26-4",
@@ -326,7 +334,10 @@ app.factory('GUNS', function() {
 			"youtube" : [
 				"https://www.youtube.com/embed/nswOxj0RT2s",
 				"https://www.youtube.com/embed/3wHUEwWmklE",
-			]
+			],
+			"amazon" : [
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B004AO6BUK&asins=B004AO6BUK&linkId=FD5ZLEASLTOIHHRP&show_border=true&link_opens_in_new_window=true",
+			],
 		},
 		{
 			"id" : "Glock22-4",
@@ -358,6 +369,11 @@ app.factory('GUNS', function() {
 				"https://www.youtube.com/embed/jolIaRoOI_g",
 				"https://www.youtube.com/embed/ODt-bW1eD5M",	// also for M&P 40
 			],
+			"amazon" : [
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B016ISRE88&asins=B016ISRE88&linkId=MCB4IHD36N4MAGVN&show_border=true&link_opens_in_new_window=true",
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B009KQ5R94&asins=B009KQ5R94&linkId=FGUJO3V7XYB4MWAL&show_border=true&link_opens_in_new_window=true",
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B004AO6BUK&asins=B004AO6BUK&linkId=FD5ZLEASLTOIHHRP&show_border=true&link_opens_in_new_window=true",
+			],
 		},
 		{
 			"id" : "Glock23-4",
@@ -387,7 +403,10 @@ app.factory('GUNS', function() {
 			"youtube" : [
 				"https://www.youtube.com/embed/Tg6RURKEi5Q",
 				"https://www.youtube.com/embed/zyX6KCBLbsY",
-			]
+			],
+			"amazon" : [
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B004AO6BUK&asins=B004AO6BUK&linkId=FD5ZLEASLTOIHHRP&show_border=true&link_opens_in_new_window=true",
+			],
 		},
 		{
 			"id" : "Glock27-4",
@@ -417,6 +436,9 @@ app.factory('GUNS', function() {
 				"https://www.youtube.com/embed/68epOKeo7M8",
 				"https://www.youtube.com/embed/hdyq1p7UVAw",
 				"https://www.youtube.com/embed/3wHUEwWmklE",
+			],
+			"amazon" : [
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B004AO6BUK&asins=B004AO6BUK&linkId=FD5ZLEASLTOIHHRP&show_border=true&link_opens_in_new_window=true",
 			],
 		},
 		{
