@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="col-lg-12 info">
+		<h2>Gun Search Wizard</h2>
+		<p>Hi! This is a quick but prolific questionairre that will walk you through the same questions asked in the "Power Search," but with more context and a slightly smaller pile of radio buttons.
+		<p>The first category to be decided is <strong>caliber</strong>, which is the approximate diameter of the barrel required to fire it. (Or: A .45 caliber handgun fires bullets that are about 0.45 inches across. A 9mm handgun fires bullets that are about 9 millimeters across.)
+		<p>In reality, however, "caliber" is used as something of a succinct shorthand for <strong>a much more complex range of cartridges</strong>. The most straightforward example of this complexity is the .380 Auto cartridge: Though its name may lead you to assume its bullet is 0.38 inches across, its diameter is about 0.355 inches &ndash; which happens to be exactly 9 millimeters.
+		<p>That's just the start of the story, though: The .380 Auto round is far different from the very popular 9mm Luger round. They're both 9 millimeters across, but 9mm Luger is 10.6 percent taller than .380 Auto, and has a maximum pressure more than 58 percent higher. Here they are side by side:
+		<div>
+			<a href="https://commons.wikimedia.org/wiki/File:380_Auto_vs_9mm_Luger.jpg"><img src="img/wizard/380vs9mm.jpg"></a>
+		</div>
+		<p>Anyway, you get the idea: "Caliber" means a lot more than just literal diameter. The Power Search contains more options, but here are the most common (American) calibers you've got to choose from, in roughly the order of their size.
+		<hr>
+		<dl>
+			<dt>.22 LR</dt>
+			<dd>
+				<p><input type="radio" ng-model="wizard.caliber['.22LR']" value="must">Must have | <input type="radio" ng-model="wizard.caliber['.22LR']" value="can">Can have | <input type="radio" ng-model="wizard.caliber['.22LR']" value="cant">Can't have
+				<p>The <strong>.22 Long Rifle</strong> cartridge, also known simply as the ".22." The smallest of the bunch and the only rimfire cartridge on the list &ndash; most modern pistols use "centerfire" cartridges, which position the explosive primer in the center of the rear of the cartridge instead of around the edges. A popular "plinking" ammo because it's cheap, (usually) easy to find, and has minimal noise and recoil. Potentially useful for varmint shooting, but doesn't commonly come up in conversations about concealed carry.
+			<dt>9mm</dt>
+			<dd>
+				<p><input type="radio" ng-model="wizard.caliber['9mm']" value="must">Must have | <input type="radio" ng-model="wizard.caliber['9mm']" value="can">Can have | <input type="radio" ng-model="wizard.caliber['9mm']" value="cant">Can't have
+				<p>Refers specifically to the <strong>9x19 mm Parabellum</strong> round, also known as <a href="https://en.wikipedia.org/wiki/9%C3%9719mm_Parabellum">9mm Luger</a> or, more commonly, just "9mm." The standard-issue sidearm of the U.S. Army for the past 30 years <a href="http://www.military.com/daily-news/2014/07/03/army-wants-a-harder-hitting-pistol.html">(but possibly not forever)</a> and a popular choice for concealed carry because it has <a href="http://www.luckygunner.com/labs/self-defense-ammo-ballistic-tests/">better performance</a> than smaller cartridges but doesn't require the weight and bulk of large cartridges like the .45 ACP.
+		</dl>
+		<a class="button" ng-click="process()">SEARCH</a>
+		<p><em>Selecting the "Can have" option is the same as leaving that line blank: The search won't rule out any weapons based on their having that caliber. "Can't have" will filter out any guns in that category. Selecting "Must have" for one of these will automatically remove any selections you've made elsewhere.</em></p>
+
+	</div>
+</div>

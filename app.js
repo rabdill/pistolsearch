@@ -16,6 +16,10 @@ app.config(['$routeProvider', function($routeProvider) {
 		when('/privacy', {
 			templateUrl: 'views/privacy.html',
 		}).
+		when('/wizard', {
+			templateUrl: 'views/wizard.html',
+			controller: 'IndexCtrl'
+		}).
 		when('/:id', {
 			templateUrl: 'views/detail.html',
 			controller: 'DetailCtrl'

@@ -1,6 +1,6 @@
 var app = angular.module('pistolSearch');
 
-app.controller('IndexCtrl', ['$scope', '$rootScope', 'GUNS', 'UserSearch', 'CRITERIA', function ($scope, $rootScope, GUNS, UserSearch, CRITERIA) {
+app.controller('IndexCtrl', ['$scope', '$rootScope', '$location', 'GUNS', 'UserSearch', 'CRITERIA', function ($scope, $rootScope, $location, GUNS, UserSearch, CRITERIA) {
 
 	$scope.guns = GUNS;
 	$scope.criteria = CRITERIA;
@@ -8,6 +8,20 @@ app.controller('IndexCtrl', ['$scope', '$rootScope', 'GUNS', 'UserSearch', 'CRIT
 
 	$scope.display = "table";
 
+	$scope.wizard = {
+		caliber : {}
+	};
+
+	$scope.process = function() {
+		// find the selection section for caliber
+		var caliberIndex = _.findIndex($scope.criteria.categories, {'field' : 'caliber'});
+		for(var i=0; i < $scope.criteria.categories[caliberIndex].members.length; i++) {
+			if($scope.wizard.caliber[$scope.criteria.categories[caliberIndex].members[i]]) {
+				$scope.selections.categories[caliberIndex][i] = $scope.wizard.caliber[$scope.criteria.categories[caliberIndex].members[i]];
+			}
+		}
+		$location.path('/');
+	}
 	$scope.checkExclusives = function(category, selection) {
 		// (when they come in, "category" and "selection" are array indices.)
 		if(CRITERIA.categories[category].exclusive) {
