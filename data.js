@@ -1495,3 +1495,32 @@ app.factory('FAMILIES', function() {
 		},
 	];
 });
+
+app.factory('WIZARD', function() {
+	var self = {};
+
+	self.caliberPrompts = [
+		{
+			"name" : ".22LR",
+			"description" : "The <strong>.22 Long Rifle</strong> cartridge, also known simply as the \".22.\" The smallest of the bunch and the only rimfire cartridge on the list &ndash; most modern pistols use \"centerfire\" cartridges, which position the explosive primer in the center of the rear of the cartridge instead of around the edges. A popular \"plinking\" ammo because it's cheap, (usually) easy to find, and has minimal noise and recoil. Potentially useful for varmint shooting, but doesn't commonly come up in conversations about concealed carry.",
+		},
+		{
+			"name" : ".380 ACP",
+			"description" : "The <strong>.380 ACP</strong> cartridge, among the first modern \"pocket pistol\" calibers, is considered on the borderline of effectiveness for concealed carry &ndash; which side of that border it's on depends on whom you ask. Essentially a shorter 9mm round, .380 ACP fires lighter bullets at lower velocities, which reduces the physical requirements of handguns chambered to fire it. As a result, it's a popular choice for those who require deep concealment or a \"BUG\" (back-up gun) to go along with their primary carry gun.",
+		},
+		{
+			"name" : "9mm",
+			"description" : "Refers specifically to the <strong>9x19 mm Parabellum</strong> round, also known as <a href='https://en.wikipedia.org/wiki/9%C3%9719mm_Parabellum'>9mm Luger</a> or, more commonly, just \"9mm.\" The standard-issue sidearm of the U.S. Army for the past 30 years <a href='http://www.military.com/daily-news/2014/07/03/army-wants-a-harder-hitting-pistol.html'>(but possibly not forever)</a> and a popular choice for concealed carry because it has <a href='http://www.luckygunner.com/labs/self-defense-ammo-ballistic-tests/'>better performance</a> than smaller cartridges but doesn't require the weight and bulk of large cartridges like the .45 ACP.",
+		},
+		{
+			"name" : ".40 S\&W",
+			"description" : "A lower-recoil variant of the 10mm cartridge, developed by Smith \& Wesson for the Federal Bureau of Investigations. While most popular handgun cartridges were developed in the first half of the 20th century, the .40 S\&W didn't appear on the scene until almost 1990, but has grown in popularity from a practical law enforcement caliber with enhanced stopping power into a commonly chosen consumer option offered by most large weapons manufacturers. <p>The increased power allows .40 rounds to propel rounds heavier than the 9mm at almost identical speeds, at the predictable cost of reduced magazine capacity and slightly larger slides.",
+		},
+		{
+			"name" : ".45 ACP",
+			"description" : "A heavier bullet, fired at lower velocities. The famed M1911 designed by John Browning is chambered in .45 and was the standard-issue sidearm of the U.S. Army through two world wars and the majority of the 20th century. Its increased diameter is usually associated either with reduced magazine capacity or grip sizes notably larger than smaller-caliber handguns.",
+		},
+	];
+
+	return self;
+})

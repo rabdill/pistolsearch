@@ -4,13 +4,10 @@ app.controller('IndexCtrl', ['$scope', '$rootScope', '$location', 'GUNS', 'UserS
 
 	$scope.guns = GUNS;
 	$scope.criteria = CRITERIA;
-	$scope.selections = UserSearch;
+	$scope.selections = UserSearch.power;
+	$scope.wizard = UserSearch.wizard;
 
 	$scope.display = "table";
-
-	$scope.wizard = {
-		caliber : {}
-	};
 
 	$scope.process = function() {
 		// find the selection section for caliber
@@ -21,7 +18,7 @@ app.controller('IndexCtrl', ['$scope', '$rootScope', '$location', 'GUNS', 'UserS
 			}
 		}
 		$location.path('/');
-	}
+	}();
 	$scope.checkExclusives = function(category, selection) {
 		// (when they come in, "category" and "selection" are array indices.)
 		if(CRITERIA.categories[category].exclusive) {
@@ -77,6 +74,26 @@ app.controller('IndexCtrl', ['$scope', '$rootScope', '$location', 'GUNS', 'UserS
 		for(var i=0; i < $scope.selections.options.length; i++) {
 			delete $scope.selections.options[i];
 		}
+	};
+}]);
+
+app.controller('WizardCtrl', ['$scope', '$rootScope', '$location', '$sce', 'GUNS', 'UserSearch', 'CRITERIA', 'WIZARD', function ($scope, $rootScope, $location, $sce, GUNS, UserSearch, CRITERIA, WIZARD) {
+	$scope.wizard = UserSearch.wizard;
+
+	$scope.currentPrompt = 0;
+	var prompts = WIZARD.caliberPrompts;
+
+	// iterate through all the prompts and tell angular it's cool to parse them as HTML:
+	_.forEach(prompts, function(p) {
+		p.description = $sce.trustAsHtml(p.description);
+	});
+
+	$scope.prompt = prompts[$scope.currentPrompt];
+
+	$scope.choice = function(cal, decision) {
+		$scope.wizard.caliber[cal] = decision;
+		$scope.currentPrompt++;
+		if($scope.currentPrompt < prompts.length) $scope.prompt = prompts[$scope.currentPrompt];
 	};
 }]);
 

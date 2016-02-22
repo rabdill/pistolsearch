@@ -18,7 +18,7 @@ app.config(['$routeProvider', function($routeProvider) {
 		}).
 		when('/wizard', {
 			templateUrl: 'views/wizard.html',
-			controller: 'IndexCtrl'
+			controller: 'WizardCtrl'
 		}).
 		when('/:id', {
 			templateUrl: 'views/detail.html',

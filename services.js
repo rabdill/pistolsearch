@@ -1,15 +1,19 @@
 var app = angular.module('pistolSearch');
 
 app.factory('UserSearch', ['_', 'CRITERIA', function(_, CRITERIA) {
-	// build an empty 2-dimensional array to store choices:
-	var x = {};
-	x.categories = _.fill(Array(CRITERIA.categories.length), []);
+	var self = {};
+	// build an empty 2-dimensional array to store choices in the power search:
+	self.power = {};
+	self.power.categories = _.fill(Array(CRITERIA.categories.length), []);
+	for(var i=0; i < self.power.categories.length; i++) {
+			self.power.categories[i] = [];
+	};
+	self.power.options = [];
 
-	for(var i=0; i < x.categories.length; i++) {
-			x.categories[i] = [];
+	// storing choices from the wizard:
+	self.wizard = {
+		caliber : {}
 	};
 
-	x.options = [];
-	
-	return x;
+	return self;
 }]);
