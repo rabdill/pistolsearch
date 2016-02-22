@@ -117,7 +117,16 @@ app.factory('GUNS', function() {
 			"youtube" : [
 				"https://www.youtube.com/embed/WgDhURHa0OQ",
 				"https://www.youtube.com/embed/ybT3wCzzB0M"
-			]
+			],
+			"amazon" : [
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B005SBMU4K&asins=B005SBMU4K&linkId=J3PSGD2XPJWGWK6P&show_border=true&link_opens_in_new_window=true",
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B00KZENW2O&asins=B00KZENW2O&linkId=RXFF2MFFIVLWJDIZ&show_border=true&link_opens_in_new_window=true",
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B00MTY9S1C&asins=B00MTY9S1C&linkId=M2FL3XJRGLMFL4ZD&show_border=true&link_opens_in_new_window=true",
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B000S5SCPM&asins=B000S5SCPM&linkId=WMH76CSUHY4E2YUN&show_border=true&link_opens_in_new_window=true",
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B007PAK79C&asins=B007PAK79C&linkId=5FRFYRGNTJNHB5JH&show_border=true&link_opens_in_new_window=true",
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B00TE3P0R2&asins=B00TE3P0R2&linkId=24T5RNV6TPDIZYBC&show_border=true&link_opens_in_new_window=true",
+				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B007ZSKQU4&asins=B007ZSKQU4&linkId=GK7IF3G2QLN6G52T&show_border=true&link_opens_in_new_window=true",
+			],
 		},
 		{
 			"id" : "CZ-75B40",
