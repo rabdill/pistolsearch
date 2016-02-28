@@ -82,10 +82,20 @@ app.controller('WizardCtrl', ['$scope', '$rootScope', '$location', '$sce', 'GUNS
 
 	$scope.currentPrompt = 0;
 	var prompts = WIZARD.caliberPrompts;
+	$scope.started = false;
+
+	$scope.startWizard = function() {
+		$scope.started = true;
+	};
 
 	// iterate through all the prompts and tell angular it's cool to parse them as HTML:
 	_.forEach(prompts, function(p) {
-		p.description = $sce.trustAsHtml(p.description);
+		// conditional added here to make sure we don't process the description twice;
+		// trying to run $sce.trustAs on something that's already been run through it
+		// throws a janky error.
+		if(typeof p.description === 'string') {
+			p.description = $sce.trustAsHtml(p.description);
+		}
 	});
 
 	$scope.prompt = prompts[$scope.currentPrompt];
@@ -93,7 +103,13 @@ app.controller('WizardCtrl', ['$scope', '$rootScope', '$location', '$sce', 'GUNS
 	$scope.choice = function(cal, decision) {
 		$scope.wizard.caliber[cal] = decision;
 		$scope.currentPrompt++;
-		if($scope.currentPrompt < prompts.length) $scope.prompt = prompts[$scope.currentPrompt];
+		if($scope.currentPrompt < prompts.length) {
+			$scope.prompt = prompts[$scope.currentPrompt];
+		}
+		else {
+			delete $scope.prompt;
+			console.log("SSSS", $scope.prompt);
+		}
 	};
 }]);
 
