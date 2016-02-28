@@ -1,8 +1,9 @@
 <div class="row">
 	<div class="col-lg-12 info">
 		<h2>Gun Search Wizard</h2>
+		<p><em>Under construction; works, kinda.</em>
 		<div ng-if="!started">
-			<p>Hi! This is a quick but prolific questionairre that will walk you through the same questions asked in the "Power Search," but with more context and a slightly smaller pile of radio buttons.
+			<p>Hi! This is a quick but prolific questionnaire that will walk you through the same questions asked in the "Power Search," but with more context and a slightly smaller pile of radio buttons.
 			<p>The first category to be decided is <strong>caliber</strong>, which is the approximate diameter of the barrel required to fire it. (Or: A .45 caliber handgun fires bullets that are about 0.45 inches across. A 9mm handgun fires bullets that are about 9 millimeters across.)
 			<p>In reality, however, "caliber" is used as something of a succinct shorthand for <strong>a much more complex range of cartridges</strong>. The most straightforward example of this complexity is the .380 Auto cartridge: Though its name may lead you to assume its bullet is 0.38 inches across, its diameter is about 0.355 inches &ndash; which happens to be exactly 9 millimeters.
 			<p>That's just the start of the story, though: The .380 Auto round is far different from the very popular 9mm Luger round. They're both 9 millimeters across, but 9mm Luger is 10.6 percent taller than .380 Auto, and has a maximum pressure more than 58 percent higher. Here they are side by side:
@@ -16,8 +17,8 @@
 		<div ng-if="started">
 			<div ng-if="prompt">
 				<h3>{{ prompt.name }}</h3>
-				<p><span ng-bind-html="prompt.description"></span>
 				<p><button ng-click="choice(prompt.name, 'can')">Can have</button><button ng-click="choice(prompt.name, 'cant')">Can't have</button>
+				<p><span ng-bind-html="prompt.description"></span>
 			</div>
 
 			<a class="button" href="#/">Take me to my results!</a>

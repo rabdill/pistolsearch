@@ -1319,7 +1319,7 @@ app.factory('GUNS', function() {
 			"variant" : "beretta-92fs",
 			"name" : "92 Brigadier",
 			"description" : "A modified 92FS handgun with wraparound Hogue grips and a heavier slide, with the stated aim of reducing felt recoil.",
-			"image" : "/img/beretta-92brigadier.jpg",
+			"image" : "/img/beretta-92brigadier.png",
 			"msrp" : 825,
 			"link" : "http://www.beretta.com/en-us/92-brigadier/",
 		},
