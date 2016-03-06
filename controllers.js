@@ -108,7 +108,6 @@ app.controller('WizardCtrl', ['$scope', '$rootScope', '$location', '$sce', 'GUNS
 		}
 		else {
 			delete $scope.prompt;
-			console.log("SSSS", $scope.prompt);
 		}
 	};
 }]);
