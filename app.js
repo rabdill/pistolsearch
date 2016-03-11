@@ -1,6 +1,7 @@
 app = angular.module('pistolSearch', [
 	'ngRoute',
 	'ngAnimate',
+	'gunData',
 ]);
 
 

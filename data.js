@@ -87,9 +87,11 @@ app.factory('CRITERIA', ['_', 'GUNS', function (_, GUNS) {
 	return criteria;
 }]);
 
-
-
-app.factory('GUNS', function() {
+// NOTE: The gun data is registered as a separate module
+//	to make it easier to mock in Protractor tests. That I know
+//	of, the simplest way to mock a service is to dump the whole
+//	module and add in a fake one using addMockModule.
+var dataThing = angular.module('gunData', []).factory('GUNS', function() {
 	var gunList = [
 		{
 			"id" : "CZ-75B9",
