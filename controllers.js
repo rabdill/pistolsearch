@@ -1,6 +1,17 @@
 var app = angular.module('pistolSearch');
 
-app.controller('IndexCtrl', ['$scope', '$rootScope', '$location', 'GUNS', 'UserSearch', 'CRITERIA', function ($scope, $rootScope, $location, GUNS, UserSearch, CRITERIA) {
+app.controller('IndexCtrl', ['$scope', '$rootScope', '$location', 'GUNS', 'UserSearch', 'CRITERIA', '$mdSidenav', '$mdDialog', function ($scope, $rootScope, $location, GUNS, UserSearch, CRITERIA, $mdSidenav, $mdDialog) {
+
+	$scope.showTabDialog = function(gun) {
+		$scope.gun = _.find(GUNS, { 'id': gun});
+    $mdDialog.show({
+			controller: 'DetailCtrl',
+      templateUrl: 'views/detail_dialog.html',
+      parent: angular.element(document.body),
+      clickOutsideToClose:true,
+			locals: { gun: $scope.gun }
+    });
+  };
 
 	$scope.guns = GUNS;
 	$scope.criteria = CRITERIA;
@@ -112,14 +123,26 @@ app.controller('WizardCtrl', ['$scope', '$rootScope', '$location', '$sce', 'GUNS
 	};
 }]);
 
-app.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', '$sce', 'GUNS', 'FAMILIES', 'CRITERIA', '_', function ($scope, $rootScope, $routeParams, $sce, GUNS, FAMILIES, CRITERIA, _) {
+app.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', '$sce', 'GUNS', 'FAMILIES', 'CRITERIA', '_', '$mdDialog', 'gun', function ($scope, $rootScope, $routeParams, $sce, GUNS, FAMILIES, CRITERIA, _, $mdDialog, gun) {
 
+	$scope.gun = gun;
+	console.log("YOO", $scope.gun);
+	$scope.hide = function() {
+    $mdDialog.hide();
+  };
+  $scope.cancel = function() {
+    $mdDialog.cancel();
+  };
+  $scope.answer = function(answer) {
+    $mdDialog.hide(answer);
+  };
+/*
 	$scope.id = $routeParams.id;
 	$scope.gun = _.find(GUNS, { 'id': $routeParams.id});
-
+*/
 	// find the families that include the current gun:
 	var zzz = _.filter(FAMILIES, function(f) {
-		return _.includes(f.members, $routeParams.id);
+		return _.includes(f.members, $scope.gun.id);
 	});
 
 	$scope.families = _.cloneDeep(zzz);

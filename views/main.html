@@ -1,5 +1,5 @@
-<div class="row">
-	<div class="col-md-4">
+<div layout="row">
+	<md-sidenav layout-padding md-is-locked-open="true" class="md-whiteframe-3dp" style="min-width: 300px">
 		<h2>Criteria</h2>
 		<table class="table table-bordered table-condensed island">
 			<tbody ng-repeat="c in criteria.categories" ng-init="$topIndex = $index">
@@ -36,35 +36,26 @@
 					<td><input type="radio" ng-model="selections.options[$index]" value="cant">
 			</tbody>
 		</table>
-	</div>
-	<div class="col-md-8">
+	</md-sidenav>
+	<md-content layout-padding>
 		<h2>Results</h2>
-		<input type="radio" ng-model="display" value="table"> table</input>
-		<input type="radio" ng-model="display" value="grid"> grid</input>
-		<table class="table table-hover island" ng-if="display==='table'">
-			<thead>
-				<th>Name
-				<th>Caliber
-				<th>Frame
-				<th>Trigger mechanism
-			</thead>
-			<tbody>
-				<tr ng-repeat="gun in guns | filter:masterGun">
-					<td><strong><a href="#/{{ gun.id }}">{{ gun.manufacturer }} {{ gun.name }}</a></strong>
-					<td>{{ gun.caliber }}
-					<td>{{ gun.frame }}
-					<td>{{ gun.trigger }}
-				</tr>
-			</tbody>
-		</table>
-		<div ng-if="display==='grid'">
-			<div class="col-sm-4 col-md-3 gungrid animate-repeat" ng-repeat="gun in guns | filter:masterGun">
-				{{ gun.manufacturer }} &ndash; {{ gun.name }}</strong>
-				<div>
-					<a href="#/{{ gun.id }}" class="thumbnail"><img ng-src="{{gun.image}}" class="img-responsive" /></a>
-				</div>
-			</div>
+		<div layout="row" layout-wrap>
+			<md-card ng-repeat="gun in guns | filter:masterGun" flex="45" ng-click="showTabDialog(gun.id)">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">{{ gun.manufacturer }} {{ gun.name }}</span>
+	          <span class="md-subhead">{{ gun.subname }}</span>
+	        </md-card-title-text>
+	        <md-card-title-media>
+	          <img ng-src="{{gun.image}}" class="md-media-sm card-media">
+	        </md-card-title-media>
+	      </md-card-title>
+	      <!--<md-card-actions layout="row" layout-align="end center">
+	        <md-button>Action 1</md-button>
+	        <md-button>Action 2</md-button>
+	      </md-card-actions>-->
+	    </md-card>
 		</div>
 		<p><em>{{ guns.length }} handguns filtered!</em>
-	</div>
+	</md-content>
 </div>

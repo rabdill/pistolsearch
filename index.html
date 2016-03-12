@@ -7,38 +7,19 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.0/angular-material.css">
 	<link rel="stylesheet" href="app.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:900,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Alegreya:900italic' rel='stylesheet' type='text/css'>
 </head>
-<body>
-	<div class="row" style="background: white;">
-		<div class="col-lg-11 col-sm-offset-1">
-			<h1><a href="#/" class="title">Pistol Search<small>.com</small></a></h1>
-			<div class="row">
-				<div class="col-lg-12">
-					<ul class="menu">
-					  <li><a href="#/">Power Search</a></li>
-						<li>|</li>
-						<li><a href="#/wizard">Newbie Search</a></li>
-						<li>|</li>
-					  <li><a href="#/about">About</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="container">
+<body layout="column">
+	<md-toolbar layout="row">
+		<h1>Pistol Search<small>.com</small></h1>
+	</md-toolbar>
 
-
-		<div class="row" style="padding-top:10px;">
-			<div ng-view class="view-frame"></div>
-		</div>
-		<div>
-			<a href="#/privacy">Privacy policy</a>
-		</div>
+	<div flex layout="column">
+		<div ng-view class="view-frame"></div>
 	</div>
 
 
@@ -47,6 +28,10 @@
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
 	<script src="//cdn.jsdelivr.net/lodash/4.6.1/lodash.min.js"></script>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
 
 	<script src="app.js"></script>
 	<script src="controllers.js"></script>
