@@ -1,45 +1,46 @@
 <div layout="row">
 	<md-sidenav layout-padding md-is-locked-open="true" class="md-whiteframe-3dp" style="min-width: 300px">
-		<h2>Criteria</h2>
-		<table class="table table-bordered table-condensed island">
-			<tbody ng-repeat="c in criteria.categories" ng-init="$topIndex = $index">
-				<tr>
-					<td colspan="4"><strong>{{ c.display }}</strong>
-				</tr>
-				<tr>
-					<td><button ng-click="reset()" ng-if="$first">Reset</button>
-					<td>Must have
-					<td>Can have
-					<td>Must not have
-				</tr>
-				<tr ng-repeat="m in c.members">
-					<td>{{ m }}
-					<td><input type="radio" ng-model="selections.categories[$topIndex][$index]" value="must" ng-change="checkExclusives($topIndex, $index)">
-					<td><input type="radio" ng-model="selections.categories[$topIndex][$index]" value="can">
-					<td><input type="radio" ng-model="selections.categories[$topIndex][$index]" value="cant">
-				</tr>
-			</tbody>
-			<tbody>
-				<tr>
-					<td colspan="4"><strong>Features</strong>
-				</tr>
-				<tr>
-					<td>
-					<td>Must have
-					<td>Can have
-					<td>Must not have
-				</tr>
-				<tr ng-repeat="o in criteria.options">
-					<td>{{ o.display }}
-					<td><input type="radio" ng-model="selections.options[$index]" value="must">
-					<td><input type="radio" ng-model="selections.options[$index]" value="can">
-					<td><input type="radio" ng-model="selections.options[$index]" value="cant">
-			</tbody>
-		</table>
+		<md-content>
+			<table class="table table-bordered table-condensed island">
+				<tbody ng-repeat="c in criteria.categories" ng-init="$topIndex = $index">
+					<!-- hack for spacing out the sections: --><tr><td>&nbsp;</td></tr>
+					<tr>
+						<th colspan="4"><strong>{{ c.display }}</strong>
+					</tr>
+					<tr>
+						<td><button ng-click="reset()" ng-if="$first">Reset</button>
+						<td>Must have
+						<td>Can have
+						<td>Must not have
+					</tr>
+					<tr ng-repeat="m in c.members">
+						<td>{{ m }}
+						<td><input type="radio" ng-model="selections.categories[$topIndex][$index]" value="must" ng-change="checkExclusives($topIndex, $index)">
+						<td><input type="radio" ng-model="selections.categories[$topIndex][$index]" value="can">
+						<td><input type="radio" ng-model="selections.categories[$topIndex][$index]" value="cant">
+					</tr>
+				</tbody>
+				<tbody>
+					<!-- hack for spacing out the sections: --><tr><td>&nbsp;</td></tr>
+					<tr>
+						<th colspan="4"><strong>Features</strong>
+					</tr>
+					<tr>
+						<td>
+						<td>Must have
+						<td>Can have
+						<td>Must not have
+					</tr>
+					<tr ng-repeat="o in criteria.options">
+						<td>{{ o.display }}
+						<td><input type="radio" ng-model="selections.options[$index]" value="must">
+						<td><input type="radio" ng-model="selections.options[$index]" value="can">
+						<td><input type="radio" ng-model="selections.options[$index]" value="cant">
+				</tbody>
+			</table>
+		</md-content>
 	</md-sidenav>
-	<md-content layout-padding>
-		<h2>Results</h2>
-		<div layout="row" layout-wrap>
+	<md-content layout-padding layout="row" layout-wrap>
 			<md-card ng-repeat="gun in guns | filter:masterGun" flex="45" ng-click="showTabDialog(gun.id)">
 	      <md-card-title>
 	        <md-card-title-text>
@@ -55,7 +56,6 @@
 	        <md-button>Action 2</md-button>
 	      </md-card-actions>-->
 	    </md-card>
-		</div>
 		<p><em>{{ guns.length }} handguns filtered!</em>
 	</md-content>
 </div>
