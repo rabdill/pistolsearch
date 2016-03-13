@@ -17,24 +17,38 @@
               <div flex="50" ng-if="gun.image">
           			<img ng-src="{{gun.image}}"/>
           		</div>
-              <h1 flex="50" class="md-display-2">{{ gun.manufacturer }} {{ gun.name }} <small ng-if="gun.subname">({{ gun.subname }})</small></h1>
+              <div layout="column">
+                <h1 flex="50" class="md-display-2">{{ gun.manufacturer }} {{ gun.name }} <small ng-if="gun.subname">({{ gun.subname }})</small></h1>
+                <p>{{ gun.description }}</p>
+                <md-button ng-href="#/{{ gun.id }}" ng-click="cancel()">
+                  View full detail page
+                </md-button>
+              </div>
             </div>
-            <p>{{ gun.description }}</p>
-            <ul>
-              <li ng-repeat="(key, value) in details"><strong>{{ key }}:</strong> {{ gun[value] }}
-              <li ng-repeat="s in gun.printOptions">{{ s }}
-            </ul>
-            <h3>Dimensions</h3>
-            <ul>
-        			<li ng-repeat="(key, value) in gun.dimensions"><strong>{{ key }}:</strong> {{ value }} {{ measurementUnits[key] }}
-        		</ul>
-            <h3>Related</h3>
-        		<dl>
-        			<span ng-repeat="fam in gun.families">
-        				<dt>{{ fam.name }}:</dt>
-        				<dd ng-repeat="member in fam.members | filter: {id: '!' + id} : true"><a ng-href="#/{{ member.id }}">{{ member.manufacturer }} {{ member.name }}</a></dd>
-        			</span>
-        		</dl>
+            <div layout="row">
+              <div layout="column" flex="33">
+                <h3>Details</h3>
+                <ul>
+                  <li ng-repeat="(key, value) in details"><strong>{{ key }}:</strong> {{ gun[value] }}
+                  <li ng-repeat="s in gun.printOptions">{{ s }}
+                </ul>
+              </div>
+              <div layout="column" flex="33">
+                <h3>Dimensions</h3>
+                <ul>
+            			<li ng-repeat="(key, value) in gun.dimensions"><strong>{{ key }}:</strong> {{ value }} {{ measurementUnits[key] }}
+            		</ul>
+              </div>
+              <div layout="column" flex="33">
+                <h3>Related</h3>
+            		<dl>
+            			<span ng-repeat="fam in gun.families">
+            				<dt>{{ fam.name }}:</dt>
+            				<dd ng-repeat="member in fam.members | filter: {id: '!' + id} : true"><a ng-href="#/{{ member.id }}" ng-click="cancel()">{{ member.manufacturer }} {{ member.name }}</a></dd>
+            			</span>
+            		</dl>
+              </div>
+            </div>
           </md-content>
         </md-tab>
         <md-tab label="videos">
