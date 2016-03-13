@@ -123,7 +123,7 @@ app.controller('WizardCtrl', ['$scope', '$rootScope', '$location', '$sce', 'GUNS
 	};
 }]);
 
-app.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', '$sce', 'GUNS', 'FAMILIES', 'CRITERIA', '_', '$mdDialog', 'gun', function ($scope, $rootScope, $routeParams, $sce, GUNS, FAMILIES, CRITERIA, _, $mdDialog, gun) {
+app.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', 'GUNS', 'FAMILIES', 'PRINTING', '_', '$mdDialog', 'gun', function ($scope, $rootScope, $routeParams, GUNS, FAMILIES, PRINTING, _, $mdDialog, gun) {
 
 	$scope.gun = gun;
 	$scope.hide = function() {
@@ -143,11 +143,6 @@ app.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', '$sce', 'G
 
 	$scope.families = _.cloneDeep(zzz);
 	for(var i=0; i < $scope.families.length; i++) {
-		// remove the current gun from the membership list of its groups:
-		/*$scope.families[i].members = _.filter($scope.families[i].members, function(m) {
-			return m !== $routeParams.id;
-		});*/
-
 		// translate gun IDs into actual gun data:
 		for(var j=0; j < $scope.families[i].members.length; j++) {
 			var id = $scope.families[i].members[j];
@@ -166,45 +161,7 @@ app.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', '$sce', 'G
 	// add the variants (if there are any) to the main list of families:
 	if(variants.members.length > 0) $scope.families.push(variants);
 
-	// fix up the youtube embed codes:
-	if($scope.gun.youtube) {
-		// generate all the YouTube embeds:
-		$scope.embed = [];
-		for(var i=0, v; v = $scope.gun.youtube[i]; i++) {
-			$scope.embed.push($sce.trustAsHtml('<iframe width="560" height="315" src="' + $scope.gun.youtube[i] + '" frameborder="0" allowfullscreen></iframe>'));
-		}
-	}
-
-	if($scope.gun.amazon) {
-		$scope.amazon = [];
-		for(var i=0, v; v = $scope.gun.amazon[i]; i++) {
-			$scope.amazon.push($sce.trustAsHtml('<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="' + $scope.gun.amazon[i] + '"></iframe>'));
-		}
-	}
-
-	$scope.details = {
-		"Caliber" : $scope.gun.caliber,
-		"Frame material" : $scope.gun.frame,
-		"Trigger mechanism" : $scope.gun.trigger,
-		"Magazine capacity" : $scope.gun.capacity
-	};
-
-	$scope.measurementUnits = {
-		"barrel" : "in.",
-		"overall" : "in.",
-		"height" : "in.",
-		"width" : "in.",
-		"weight" : "oz."
-	};
-
-	// fill in the display names of the gun's options:
-	$scope.printOptions = [];
-	if($scope.gun.options) {
-		for(var i=0; i < $scope.gun.options.length; i++) {
-			var lookup = _.find(CRITERIA.options, {"name" : $scope.gun.options[i]});
-			if(lookup) $scope.printOptions.push(lookup.display);
-			else $scope.printOptions.push($scope.gun.options[i]);
-		}
-	}
+	$scope.details = PRINTING.detailPairs;
+	$scope.measurementUnits = PRINTING.measurementUnits;
 
 }]);

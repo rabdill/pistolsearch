@@ -26,7 +26,45 @@ app.factory('CRITERIA', ['_', 'GUNS', function (_, GUNS) {
 		},
 	];
 
-	criteria.options = [
+	// populate the categories:
+	// for each category, go through all the guns and
+	// find the unique options for the user to choose.
+	for(var i=0; i < criteria.categories.length; i++) {
+		// add a "members" field to each criteria
+		criteria.categories[i].members = [];
+
+		var name = criteria.categories[i].field;
+		for(var j=0, gun; gun = GUNS[j]; j++) {
+			var index = _.findIndex(criteria.categories, { 'field': name });
+			// if it's new, add it:
+			if(!_.includes(criteria.categories[index].members, gun[name])) {
+					criteria.categories[index].members.push(gun[name]);
+			}
+		}
+	}
+
+	return criteria;
+}]);
+
+app.factory('PRINTING', function() {
+	var printing = {};
+	//	where within a gun's schema to find the details we display in the "Detail" page:
+	printing.detailPairs = {
+		"Caliber" : 'caliber',
+		"Frame material" : 'frame',
+		"Trigger mechanism" : 'trigger',
+		"Magazine capacity" : 'capacity',
+	};
+
+	printing.measurementUnits = {
+		"barrel" : "in.",
+		"overall" : "in.",
+		"height" : "in.",
+		"width" : "in.",
+		"weight" : "oz."
+	};
+
+	printing.options = [
 		{
 			"display" : "Front accessory rail",
 			"name" : "rail"
@@ -66,32 +104,13 @@ app.factory('CRITERIA', ['_', 'GUNS', function (_, GUNS) {
 
 	]
 
-	// populate the categories:
-	// for each category, go through all the guns and
-	// find the unique options for the user to choose.
-	for(var i=0; i < criteria.categories.length; i++) {
-		// add a "members" field to each criteria
-		criteria.categories[i].members = [];
-
-		var name = criteria.categories[i].field;
-		for(var j=0, gun; gun = GUNS[j]; j++) {
-			var index = _.findIndex(criteria.categories, { 'field': name });
-			// if it's new, add it:
-			if(!_.includes(criteria.categories[index].members, gun[name])) {
-					criteria.categories[index].members.push(gun[name]);
-			}
-		}
-
-	}
-
-	return criteria;
-}]);
-
+	return printing;
+});
 // NOTE: The gun data is registered as a separate module
 //	to make it easier to mock in Protractor tests. That I know
 //	of, the simplest way to mock a service is to dump the whole
 //	module and add in a fake one using addMockModule.
-var dataThing = angular.module('gunData', []).factory('GUNS', function() {
+var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', '$sce', function(PRINTING, $sce) {
 	var gunList = [
 		{
 			"id" : "CZ-75B9",
@@ -1455,8 +1474,9 @@ var dataThing = angular.module('gunData', []).factory('GUNS', function() {
 		},
 	];
 
-	// copy in the data from variant guns:
+	// massage the datas:
 	_(gunList).forEach(function(gun) {
+		// copy in the data from variant guns:
 		if(gun.variant) {
 			var baseIndex = _.findIndex(gunList, {"id" : gun.variant});
 			if(baseIndex === -1) {
@@ -1470,10 +1490,35 @@ var dataThing = angular.module('gunData', []).factory('GUNS', function() {
 				if(!gun[prop]) gun[prop] = base[prop];
 			});
 		}
+
+		//	format youtube embeds:
+		if(gun.youtube) {
+			gun.embed = [];
+			for(var i=0, v; v = gun.youtube[i]; i++) {
+				gun.embed.push($sce.trustAsHtml('<iframe width="560" height="315" src="' + gun.youtube[i] + '" frameborder="0" allowfullscreen></iframe>'));
+			}
+		}
+		//	format amazon product embeds:
+		if(gun.amazon) {
+			gun.amazonEmbeds = [];
+			for(var i=0, v; v = gun.amazon[i]; i++) {
+				gun.amazonEmbeds.push($sce.trustAsHtml('<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="' + gun.amazon[i] + '"></iframe>'));
+			}
+		}
+
+		// fill in the display names of the gun's options:
+		gun.printOptions = [];
+		if(gun.options) {
+			for(var i=0; i < gun.options.length; i++) {
+				var lookup = _.find(PRINTING.options, {"name" : gun.options[i]});
+				if(lookup) gun.printOptions.push(lookup.display);
+				else gun.printOptions.push(gun.options[i]);	// if there isn't a print name specified, just send it through
+			}
+		}
 	});
 
 	return gunList;
-});
+}]);
 
 app.factory('FAMILIES', function() {
 	return [

@@ -21,8 +21,8 @@
             </div>
             <p>{{ gun.description }}</p>
             <ul>
-              <li ng-repeat="(key, value) in details"><strong>{{ key }}:</strong> {{ value }}
-              <li ng-repeat="s in printOptions">{{ s }}
+              <li ng-repeat="(key, value) in details"><strong>{{ key }}:</strong> {{ gun[value] }}
+              <li ng-repeat="s in gun.printOptions">{{ s }}
             </ul>
             <h3>Dimensions</h3>
             <ul>
@@ -39,7 +39,7 @@
         </md-tab>
         <md-tab label="videos">
           <md-content class="md-padding">
-            <span ng-repeat="v in embed">
+            <span ng-repeat="v in gun.embed">
         			<span ng-bind-html="v"></span>
         		</span>
           </md-content>
@@ -47,7 +47,7 @@
         <md-tab label="products">
           <md-content class="md-padding">
             <h1 class="md-display-2">Accessories</h1>
-            <span ng-repeat="a in amazon">
+            <span ng-repeat="a in gun.amazonEmbeds">
         			<span ng-bind-html="a"></span>
         		</span>
           </md-content>
