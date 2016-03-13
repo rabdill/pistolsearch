@@ -1,7 +1,7 @@
 <div layout="row">
 	<md-sidenav layout-padding md-is-locked-open="true" class="md-whiteframe-3dp" style="min-width: 300px">
-		<md-content>
-			<table class="table table-bordered table-condensed island">
+		<md-content flex layout="column">
+			<table>
 				<tbody ng-repeat="c in criteria.categories" ng-init="$topIndex = $index">
 					<!-- hack for spacing out the sections: --><tr><td>&nbsp;</td></tr>
 					<tr>

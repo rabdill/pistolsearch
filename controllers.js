@@ -126,7 +126,6 @@ app.controller('WizardCtrl', ['$scope', '$rootScope', '$location', '$sce', 'GUNS
 app.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', '$sce', 'GUNS', 'FAMILIES', 'CRITERIA', '_', '$mdDialog', 'gun', function ($scope, $rootScope, $routeParams, $sce, GUNS, FAMILIES, CRITERIA, _, $mdDialog, gun) {
 
 	$scope.gun = gun;
-	console.log("YOO", $scope.gun);
 	$scope.hide = function() {
     $mdDialog.hide();
   };
@@ -136,10 +135,7 @@ app.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', '$sce', 'G
   $scope.answer = function(answer) {
     $mdDialog.hide(answer);
   };
-/*
-	$scope.id = $routeParams.id;
-	$scope.gun = _.find(GUNS, { 'id': $routeParams.id});
-*/
+
 	// find the families that include the current gun:
 	var zzz = _.filter(FAMILIES, function(f) {
 		return _.includes(f.members, $scope.gun.id);

@@ -36,6 +36,14 @@ td:first-child {
   text-align: right;
 }
 
+.menu {
+	margin: -10px 0 15px 35px;
+}
+.menu li {
+	display: inline;
+	padding: 0 15px;
+}
+
 .md-media-sm {
   /* prevents ngMaterial from making a stretched-out
       square image */
