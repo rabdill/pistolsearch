@@ -30,7 +30,7 @@
         		</ul>
             <h3>Related</h3>
         		<dl>
-        			<span ng-repeat="fam in families">
+        			<span ng-repeat="fam in gun.families">
         				<dt>{{ fam.name }}:</dt>
         				<dd ng-repeat="member in fam.members | filter: {id: '!' + id} : true"><a ng-href="#/{{ member.id }}">{{ member.manufacturer }} {{ member.name }}</a></dd>
         			</span>

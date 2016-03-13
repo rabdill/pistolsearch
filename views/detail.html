@@ -11,9 +11,9 @@
 	<div class="col-md-3 island">
 		<h3>Details</h3>
 		<ul>
-			<li ng-repeat="(key, value) in details"><strong>{{ key }}:</strong> {{ value }}
+			<li ng-repeat="(key, value) in details"><strong>{{ key }}:</strong> {{ gun[value] }}
 			<li><strong>Other details:</strong><ul>
-				<li ng-repeat="s in printOptions">{{ s }}
+				<li ng-repeat="s in gun.printOptions">{{ s }}
 				</ul>
 		</ul>
 		<p ng-if="gun.link"><a ng-href="{{gun.link}}"><i>See manufacturer website for more.</i></a>
@@ -25,10 +25,10 @@
 		</ul>
 	</div>
 
-	<div class="col-md-2 island" ng-if="families.length > 0">
+	<div class="col-md-2 island" ng-if="gun.families.length > 0">
 		<h3>Related</h3>
 		<dl>
-			<span ng-repeat="fam in families">
+			<span ng-repeat="fam in gun.families">
 				<dt>{{ fam.name }}:</dt>
 				<dd ng-repeat="member in fam.members | filter: {id: '!' + id} : true"><a ng-href="#/{{ member.id }}">{{ member.manufacturer }} {{ member.name }}</a></dd>
 			</span>
@@ -36,15 +36,15 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-6" ng-if="amazon">
+	<div class="col-md-6" ng-if="gun.amazonEmbeds">
 		<h3>Products</h3>
-		<span ng-repeat="a in amazon">
+		<span ng-repeat="a in gun.amazonEmbeds">
 			<span ng-bind-html="a"></span>
 		</span>
 	</div>
 	<div class="col-md-6" ng-if="gun.youtube && gun.youtube.length > 0">
 		<h3>Media</h3>
-		<span ng-repeat="v in embed">
+		<span ng-repeat="v in gun.embed">
 			<span ng-bind-html="v"></span>
 		</span>
 	</div>

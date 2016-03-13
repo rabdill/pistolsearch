@@ -110,7 +110,7 @@ app.factory('PRINTING', function() {
 //	to make it easier to mock in Protractor tests. That I know
 //	of, the simplest way to mock a service is to dump the whole
 //	module and add in a fake one using addMockModule.
-var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', '$sce', function(PRINTING, $sce) {
+var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', 'FAMILIES', '$sce', function(PRINTING, FAMILIES, $sce) {
 	var gunList = [
 		{
 			"id" : "CZ-75B9",
@@ -1515,6 +1515,32 @@ var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', '$sce
 				else gun.printOptions.push(gun.options[i]);	// if there isn't a print name specified, just send it through
 			}
 		}
+
+		//	**Variants and families:
+		// find the families that include the current gun:
+		var zzz = _.filter(FAMILIES, function(f) {
+			return _.includes(f.members, gun.id);
+		});
+
+		gun.families = _.cloneDeep(zzz);
+		for(var i=0; i < gun.families.length; i++) {
+			// translate gun IDs into actual gun data:
+			for(var j=0; j < gun.families[i].members.length; j++) {
+				var id = gun.families[i].members[j];
+				gun.families[i].members[j] = _.find(gunList, {"id" : gun.families[i].members[j]});
+			}
+		}
+
+		// if it's a variant, search for its siblings, otherwise search for its children
+		var variants = {
+			"name" : "Variants",
+			"members" : _.filter(gunList, { 'variant': gun.variant || gun.id })
+		};
+		// if it's a variant, add its parent:
+		if(gun.variant) variants.members.push(_.find(gunList, { 'id': gun.variant }));
+
+		// add the variants (if there are any) to the main list of families:
+		if(variants.members.length > 0) gun.families.push(variants);
 	});
 
 	return gunList;

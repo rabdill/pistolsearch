@@ -5,7 +5,7 @@ app.controller('IndexCtrl', ['$scope', '$rootScope', '$location', 'GUNS', 'UserS
 	$scope.showTabDialog = function(gun) {
 		$scope.gun = _.find(GUNS, { 'id': gun});
     $mdDialog.show({
-			controller: 'DetailCtrl',
+			controller: 'DetailModalCtrl',
       templateUrl: 'views/detail_dialog.html',
       parent: angular.element(document.body),
       clickOutsideToClose:true,
@@ -123,8 +123,15 @@ app.controller('WizardCtrl', ['$scope', '$rootScope', '$location', '$sce', 'GUNS
 	};
 }]);
 
-app.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', 'GUNS', 'FAMILIES', 'PRINTING', '_', '$mdDialog', 'gun', function ($scope, $rootScope, $routeParams, GUNS, FAMILIES, PRINTING, _, $mdDialog, gun) {
+app.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', 'GUNS', 'PRINTING', '_', function ($scope, $rootScope, $routeParams, GUNS, PRINTING, _) {
+	$scope.gun = _.find(GUNS, { 'id': $routeParams.id});
+	$scope.details = PRINTING.detailPairs;
+	$scope.measurementUnits = PRINTING.measurementUnits;
+}]);
 
+app.controller('DetailModalCtrl', ['$scope', '$rootScope', '$routeParams', 'GUNS', 'FAMILIES', 'PRINTING', '_', '$mdDialog', 'gun', function ($scope, $rootScope, $routeParams, GUNS, FAMILIES, PRINTING, _, $mdDialog, gun) {
+	// NOTE: The 'gun' parameter is injected by the initialization function
+	// in IndexCtrl. It's passed from that controller into here so we can display the gun.
 	$scope.gun = gun;
 	$scope.hide = function() {
     $mdDialog.hide();
@@ -135,31 +142,6 @@ app.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', 'GUNS', 'F
   $scope.answer = function(answer) {
     $mdDialog.hide(answer);
   };
-
-	// find the families that include the current gun:
-	var zzz = _.filter(FAMILIES, function(f) {
-		return _.includes(f.members, $scope.gun.id);
-	});
-
-	$scope.families = _.cloneDeep(zzz);
-	for(var i=0; i < $scope.families.length; i++) {
-		// translate gun IDs into actual gun data:
-		for(var j=0; j < $scope.families[i].members.length; j++) {
-			var id = $scope.families[i].members[j];
-			$scope.families[i].members[j] = _.find(GUNS, {"id" : $scope.families[i].members[j]});
-		}
-	}
-
-	// if it's a variant, search for its siblings, otherwise search for its children
-	var variants = {
-		"name" : "Variants",
-		"members" : _.filter(GUNS, { 'variant': $scope.gun.variant || $scope.gun.id })
-	};
-	// if it's a variant, add its parent:
-	if($scope.gun.variant) variants.members.push(_.find(GUNS, { 'id': $scope.gun.variant }));
-
-	// add the variants (if there are any) to the main list of families:
-	if(variants.members.length > 0) $scope.families.push(variants);
 
 	$scope.details = PRINTING.detailPairs;
 	$scope.measurementUnits = PRINTING.measurementUnits;
