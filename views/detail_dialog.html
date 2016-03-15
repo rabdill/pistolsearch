@@ -1,0 +1,72 @@
+<md-dialog aria-label="{{ gun.manufacturer }} {{ gun.name }}">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{ gun.manufacturer }} {{ gun.name }} <span ng-if="gun.subname">({{ gun.subname }})</span></h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          X</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="info">
+          <md-content class="md-padding">
+            <div layout="row">
+              <div flex="50" ng-if="gun.image">
+          			<img ng-src="{{gun.image}}"/>
+          		</div>
+              <div layout="column">
+                <h1 flex="50" class="md-display-2">{{ gun.manufacturer }} {{ gun.name }} <small ng-if="gun.subname">({{ gun.subname }})</small></h1>
+                <p>{{ gun.description }}</p>
+                <md-button ng-href="#/{{ gun.id }}" ng-click="cancel()">
+                  View full detail page
+                </md-button>
+              </div>
+            </div>
+            <div layout="row">
+              <div layout="column" flex="33">
+                <h3>Details</h3>
+                <ul>
+                  <li ng-repeat="(key, value) in details"><strong>{{ key }}:</strong> {{ gun[value] }}
+                  <li ng-repeat="s in gun.printOptions">{{ s }}
+                </ul>
+              </div>
+              <div layout="column" flex="33">
+                <h3>Dimensions</h3>
+                <ul>
+            			<li ng-repeat="(key, value) in gun.dimensions"><strong>{{ key }}:</strong> {{ value }} {{ measurementUnits[key] }}
+            		</ul>
+              </div>
+              <div layout="column" flex="33" ng-if="gun.families.length > 0">
+                <h3>Related</h3>
+            		<dl>
+            			<span ng-repeat="fam in gun.families">
+            				<dt>{{ fam.name }}:</dt>
+            				<dd ng-repeat="member in fam.members | filter: {id: '!' + id} : true"><a ng-href="#/{{ member.id }}" ng-click="cancel()">{{ member.manufacturer }} {{ member.name }}</a></dd>
+            			</span>
+            		</dl>
+              </div>
+            </div>
+          </md-content>
+        </md-tab>
+        <md-tab label="videos" ng-if="gun.embed.length > 0">
+          <md-content class="md-padding">
+            <span ng-repeat="v in gun.embed">
+        			<span ng-bind-html="v"></span>
+        		</span>
+          </md-content>
+        </md-tab>
+        <md-tab label="products"  ng-if="gun.amazonEmbeds.length > 0">
+          <md-content class="md-padding">
+            <h1 class="md-display-2">Accessories</h1>
+            <span ng-repeat="a in gun.amazonEmbeds">
+        			<span ng-bind-html="a"></span>
+        		</span>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-dialog-content>
+  </form>
+</md-dialog>

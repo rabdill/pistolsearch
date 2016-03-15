@@ -26,7 +26,45 @@ app.factory('CRITERIA', ['_', 'GUNS', function (_, GUNS) {
 		},
 	];
 
-	criteria.options = [
+	// populate the categories:
+	// for each category, go through all the guns and
+	// find the unique options for the user to choose.
+	for(var i=0; i < criteria.categories.length; i++) {
+		// add a "members" field to each criteria
+		criteria.categories[i].members = [];
+
+		var name = criteria.categories[i].field;
+		for(var j=0, gun; gun = GUNS[j]; j++) {
+			var index = _.findIndex(criteria.categories, { 'field': name });
+			// if it's new, add it:
+			if(!_.includes(criteria.categories[index].members, gun[name])) {
+					criteria.categories[index].members.push(gun[name]);
+			}
+		}
+	}
+
+	return criteria;
+}]);
+
+app.factory('PRINTING', function() {
+	var printing = {};
+	//	where within a gun's schema to find the details we display in the "Detail" page:
+	printing.detailPairs = {
+		"Caliber" : 'caliber',
+		"Frame material" : 'frame',
+		"Trigger mechanism" : 'trigger',
+		"Magazine capacity" : 'capacity',
+	};
+
+	printing.measurementUnits = {
+		"barrel" : "in.",
+		"overall" : "in.",
+		"height" : "in.",
+		"width" : "in.",
+		"weight" : "oz."
+	};
+
+	printing.options = [
 		{
 			"display" : "Front accessory rail",
 			"name" : "rail"
@@ -66,35 +104,19 @@ app.factory('CRITERIA', ['_', 'GUNS', function (_, GUNS) {
 
 	]
 
-	// populate the categories:
-	// for each category, go through all the guns and
-	// find the unique options for the user to choose.
-	for(var i=0; i < criteria.categories.length; i++) {
-		// add a "members" field to each criteria
-		criteria.categories[i].members = [];
-
-		var name = criteria.categories[i].field;
-		for(var j=0, gun; gun = GUNS[j]; j++) {
-			var index = _.findIndex(criteria.categories, { 'field': name });
-			// if it's new, add it:
-			if(!_.includes(criteria.categories[index].members, gun[name])) {
-					criteria.categories[index].members.push(gun[name]);
-			}
-		}
-
-	}
-
-	return criteria;
-}]);
-
-
-
-app.factory('GUNS', function() {
+	return printing;
+});
+// NOTE: The gun data is registered as a separate module
+//	to make it easier to mock in Protractor tests. That I know
+//	of, the simplest way to mock a service is to dump the whole
+//	module and add in a fake one using addMockModule.
+var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', 'FAMILIES', '$sce', function(PRINTING, FAMILIES, $sce) {
 	var gunList = [
 		{
 			"id" : "CZ-75B9",
 			"manufacturer" : "CZ",
-			"name" : "75 B (9mm)",
+			"name" : "75 B",
+			"subname" : "9mm",
 			"description" : "The canonical full-size CZ, available in 9mm or .40 caliber. Full-steel construction and a standard safety. The 'B' indicates a firing pin block is installed, now standard on all CZ-75s.",
 			"image" : "/img/cz-75b.png",
 			"link" : "http://cz-usa.com/product/cz-75-b-9mm-black-16-rd-mags-2/",
@@ -131,7 +153,8 @@ app.factory('GUNS', function() {
 		{
 			"id" : "CZ-75B40",
 			"variant" : "CZ-75B9",
-			"name" : "75 B (.40)",
+			"name" : "75 B",
+			"subname" : ".40 S&W",
 			"caliber" : ".40 S&W",
 			"capacity" : 10,
 			"options" : [
@@ -162,7 +185,8 @@ app.factory('GUNS', function() {
 		{
 			"id" : "CZ-75BSA9",
 			"variant" : "CZ-75B9",
-			"name" : "75 B SA (9mm)",
+			"name" : "75 B SA",
+			"subname" : "9mm",
 			"description" : "The full-size CZ-75, but with a single-action trigger. Available in 9mm or .40.",
 			"image" : "/img/cz-75bsa.png",
 			"link" : "http://cz-usa.com/product/cz-75-b-sa-9mm-black-16-rd-mags/",
@@ -175,7 +199,8 @@ app.factory('GUNS', function() {
 		{
 			"id" : "CZ-75BSA40",
 			"variant" : "CZ-75BSA9",
-			"name" : "75 B SA (.40)",
+			"name" : "75 B SA",
+			"subname" : ".40 S&W",
 			"caliber" : ".40 S&W",
 			"capacity" : 10,
 		},
@@ -211,7 +236,8 @@ app.factory('GUNS', function() {
 		{
 			"id" : "CZ-75Bthreaded",
 			"manufacturer" : "CZ",
-			"name" : "75 B Ω Suppressor-Ready (safety)",
+			"name" : "75 B Ω",
+			"subname" : "Suppressor-Ready (safety)",
 			"description" : "A modified CZ 75 B with the new Omega trigger system and a threaded barrel. Includes a standard manual safety that can be swapped out for a decocker.",
 			"image" : "/img/cz-75bthreaded.png",
 			"link" : "http://cz-usa.com/product/cz-75-b-%CF%89-urban-grey-suppressor-ready-omega/",
@@ -239,7 +265,8 @@ app.factory('GUNS', function() {
 		{
 			"id" : "CZ-75Bthreaded-ns",
 			"variant" : "CZ-75Bthreaded",
-			"name" : "75 B Ω Suppressor-Ready (decocker)",
+			"name" : "75 B Ω",
+			"subname" : "Suppressor-Ready (decocker)",
 			"options" : [
 				"decocker",
 				"firing pin",
@@ -666,7 +693,7 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "SW-MP22c",
-			"manufacturer" : "Smith & Wesson",
+			"manufacturer" : "S&W",
 			"name" : "M&P 22 Compact",
 			"description" : "A non-traditional compact S&W in .22 long rifle. Though it has a single-action trigger, the hammer is internal. The slide, rather than steel, is made of aluminum alloy.",
 			"image" : "/img/sw-mp22c.jpg",
@@ -696,8 +723,9 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "SW-MPshield40",
-			"manufacturer" : "Smith & Wesson",
-			"name" : "M&P Shield .40",
+			"manufacturer" : "S&W",
+			"name" : "M&P Shield",
+			"subname" : ".40 S&W",
 			"description" : "The classic single-stack in .40 S&W. Magazines come in two sizes; the standard holds six rounds, the extended seven.",
 			"image" : "/img/sw-mp-shield40.jpg",
 			"link" : "http://www.smith-wesson.com/webapp/wcs/stores/servlet/Product4_750001_750051_831060",
@@ -723,8 +751,9 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "SW-MPshield9",
-			"manufacturer" : "Smith & Wesson",
-			"name" : "M&P Shield 9mm",
+			"manufacturer" : "S&W",
+			"name" : "M&P Shield",
+			"subname" : "9mm",
 			"description" : "The classic single-stack in .9mm. Like the .40 version, magazines come in two sizes: the standard holds seven rounds, the extended eight.",
 			"image" : "/img/sw-mp-shield9.jpg",
 			"link" : "http://www.smith-wesson.com/webapp/wcs/stores/servlet/Product4_750001_750051_831056",
@@ -750,7 +779,7 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "sw-mp-bodyguard",
-			"manufacturer" : "Smith & Wesson",
+			"manufacturer" : "S&W",
 			"name" : "M&P Bodyguard",
 			"description" : "The sub-compact from S&W that's even smaller than the Shield.",
 			"image" : "/img/sw-mp-bodyguard.jpg",
@@ -777,7 +806,7 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "sw-sd40ve",
-			"manufacturer" : "Smith & Wesson",
+			"manufacturer" : "S&W",
 			"name" : "SD40 VE",
 			"description" : "A next-gen version of the standard S&W SD40, with a \"self-defense trigger\" and an improved slide and grip.",
 			"image" : "/img/sw-sd40ve.jpg",
@@ -807,7 +836,7 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "sw-sd9ve",
-			"manufacturer" : "Smith & Wesson",
+			"manufacturer" : "S&W",
 			"name" : "SD9 VE",
 			"description" : "A next-gen version of the standard S&W SD9, with a \"self-defense trigger\" and an improved slide and grip.",
 			"image" : "/img/sw-sd9ve.jpg",
@@ -836,8 +865,9 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "sw-1911-9",
-			"manufacturer" : "Smith & Wesson",
-			"name" : "SW1911 9mm",
+			"manufacturer" : "S&W",
+			"name" : "SW1911",
+			"subname" : "9mm",
 			"description" : "S&W's 1911 in 9mm.",
 			"image" : "/img/sw-1911-9.jpg",
 			"msrp" : 1579,
@@ -878,7 +908,8 @@ app.factory('GUNS', function() {
 		{
 			"id" : "sw-1911-45",
 			"variant" : "sw-1911-9",
-			"name" : "SW1911 .45",
+			"name" : "SW1911",
+			"subname" : ".45 ACP",
 			"description" : "S&W's 1911 in .45 ACP. Comes with either a five- or three-inch barrel.",
 			"image" : "/img/sw-1911-45.jpg",
 			"msrp" : 1459,
@@ -893,7 +924,8 @@ app.factory('GUNS', function() {
 		{
 			"id" : "sw-1911-45-3",
 			"variant" : "sw-1911-45",
-			"name" : "SW1911 .45 (3\" barrel)",
+			"name" : "SW1911",
+			"subname" : ".45 ACP, 3\" barrel",
 			"image" : "/img/sw-1911-45-3.jpg",
 			"msrp" : 1229,
 			"link" : "http://www.smith-wesson.com/webapp/wcs/stores/servlet/Product4_750001_750051_766210",
@@ -910,7 +942,7 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "sw-model41",
-			"manufacturer" : "Smith & Wesson",
+			"manufacturer" : "S&W",
 			"name" : "Model 41",
 			"description" : "A high-end rimfire target pistol with a trigger pull at less than 3 pounds, designed with competition shooters in mind. A 5.5-inch barrel is standard, but can be swapped out for a 7-inch version.",
 			"image" : "/img/sw-model41.jpg",
@@ -938,7 +970,7 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "sw-mp40",
-			"manufacturer" : "Smith & Wesson",
+			"manufacturer" : "S&W",
 			"name" : "M&P 40",
 			"description" : "The tried-and-true service pistol from S&W.",
 			"image" : "/img/sw-mp40.jpg",
@@ -968,7 +1000,7 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "sw-mp40c",
-			"manufacturer" : "Smith & Wesson",
+			"manufacturer" : "S&W",
 			"name" : "M&P Compact .40",
 			"description" : "The tried-and-true service pistol from S&W. Comes with or without a thumb safety.",
 			"image" : "/img/sw-mp40c.jpg",
@@ -999,7 +1031,8 @@ app.factory('GUNS', function() {
 		{
 			"id" : "sw-mp40c-ns",
 			"variant" : "sw-mp40c",
-			"name" : "M&P Compact .40 (No safety)",
+			"name" : "M&P Compact .40",
+			"subname" : "no safety",
 			"image" : "/img/sw-mp40c-ns.jpg",
 			"link" : "http://www.smith-wesson.com/webapp/wcs/stores/servlet/Product4_750001_750051_765698",
 			"options" : [
@@ -1009,8 +1042,9 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "sw-mp45",
-			"manufacturer" : "Smith & Wesson",
-			"name" : "M&P45 (4.5-inch barrel)",
+			"manufacturer" : "S&W",
+			"name" : "M&P45",
+			"subname" : "4.5-inch barrel",
 			"description" : "The popular, classic M&P handgun chambered in .45 ACP. Comes in models with or without a thumb safety, and barrels either 4 inches long or 4.5.",
 			"image" : "/img/sw-mp45.jpg",
 			"msrp" : 619,
@@ -1040,7 +1074,8 @@ app.factory('GUNS', function() {
 		{
 			"id" : "sw-mp45-4",
 			"variant" : "sw-mp45",
-			"name" : "M&P45 (4-inch barrel)",
+			"name" : "M&P45",
+			"subname" : "4-inch barrel",
 			"image" : "/img/sw-mp45-4.jpg",
 			"link" : "http://www.smith-wesson.com/webapp/wcs/stores/servlet/Product4_750001_750051_765736",
 			"dimensions" : {
@@ -1054,7 +1089,8 @@ app.factory('GUNS', function() {
 		{
 			"id" : "sw-mp45ns-4",
 			"variant" : "sw-mp45-4",
-			"name" : "M&P45 (4-inch barrel, no safety)",
+			"name" : "M&P45",
+			"subname" : "4-inch barrel, no safety",
 			"image" : "/img/sw-mp45ns-4.jpg",
 			"msrp" : 599,
 			"link" : "http://www.smith-wesson.com/webapp/wcs/stores/servlet/Product4_750001_750051_765739",
@@ -1076,7 +1112,7 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "sw-mp45c",
-			"manufacturer" : "Smith & Wesson",
+			"manufacturer" : "S&W",
 			"name" : "M&P45c",
 			"description" : "A compact version of the popular, classic M&P handgun chambered in .45 ACP. Comes in models with or without a thumb safety.",
 			"image" : "/img/sw-mp45c.jpg",
@@ -1106,7 +1142,8 @@ app.factory('GUNS', function() {
 		{
 			"id" : "sw-mp45c-ns",
 			"variant" : "sw-mp45c",
-			"name" : "M&P45c (No safety)",
+			"name" : "M&P45c",
+			"subname" : "no safety",
 			"image" : "/img/sw-mp45c-ns.jpg",
 			"msrp" : 599,
 			"link" : "http://www.smith-wesson.com/webapp/wcs/stores/servlet/Product4_750001_750051_766268",
@@ -1117,8 +1154,9 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "sw-mp357c",
-			"manufacturer" : "Smith & Wesson",
-			"name" : "M&P Compact .357 Sig",
+			"manufacturer" : "S&W",
+			"name" : "M&P Compact",
+			"subname" : ".357 Sig",
 			"discontinued" : true,
 			"description" : "A discontinued version of the M&P Compact chambered in .357 Sig.",
 			"image" : "/img/sw-mp357c.jpg",
@@ -1147,7 +1185,7 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "sw-mp357",
-			"manufacturer" : "Smith & Wesson",
+			"manufacturer" : "S&W",
 			"name" : "M&P357",
 			"discontinued" : true,
 			"description" : "A discontinued version of the M&P chambered in .357 Sig.",
@@ -1177,7 +1215,7 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "sw-mp9",
-			"manufacturer" : "Smith & Wesson",
+			"manufacturer" : "S&W",
 			"name" : "M&P9",
 			"description" : "The M&P9, which comes either with or without a thumb safety",
 			"image" : "/img/sw-mp9.jpg",
@@ -1207,7 +1245,8 @@ app.factory('GUNS', function() {
 		{
 			"id" : "sw-mp9-ns",
 			"variant" : "sw-mp9",
-			"name" : "M&P9 (No safety)",
+			"name" : "M&P9",
+			"subname" : "no safety",
 			"image" : "/img/sw-mp9-ns.jpg",
 			"msrp" : 569,
 			"link" : "http://www.smith-wesson.com/webapp/wcs/stores/servlet/Product4_750001_750051_770002",
@@ -1217,7 +1256,7 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "sw-mp9pro",
-			"manufacturer" : "Smith & Wesson",
+			"manufacturer" : "S&W",
 			"name" : "M&P9 Pro Series",
 			"description" : "The more upscale version of the standard M&P9, with an extended slide and upgraded sights. (Also does not have a mag safety.)",
 			"image" : "/img/sw-mp9p.jpg",
@@ -1245,7 +1284,7 @@ app.factory('GUNS', function() {
 		},
 		{
 			"id" : "sw-mp9c",
-			"manufacturer" : "Smith & Wesson",
+			"manufacturer" : "S&W",
 			"name" : "M&P9c",
 			"description" : "The compact version of the M&P9, which comes either with or without a thumb safety",
 			"image" : "/img/sw-mp9c.jpg",
@@ -1276,7 +1315,8 @@ app.factory('GUNS', function() {
 		{
 			"id" : "sw-mp9c-ns",
 			"variant" : "sw-mp9c",
-			"name" : "M&P9c (No safety)",
+			"name" : "M&P9c",
+			"subname" : "no safety",
 			"image" : "/img/sw-mp9c-ns.jpg",
 			"msrp" : 569,
 			"link" : "http://www.smith-wesson.com/webapp/wcs/stores/servlet/Product4_750001_750051_770008",
@@ -1374,7 +1414,8 @@ app.factory('GUNS', function() {
 		{
 			"id" : "beretta-m9a3-ns",
 			"variant" : "beretta-m9a3",
-			"name" : "M9A3 (No safety)",
+			"name" : "M9A3",
+			"subname" : "no safety",
 			"image" : "/img/beretta-m9a3.jpg",
 			"options" : [
 				"firing pin block",
@@ -1433,8 +1474,9 @@ app.factory('GUNS', function() {
 		},
 	];
 
-	// copy in the data from variant guns:
+	// massage the datas:
 	_(gunList).forEach(function(gun) {
+		// copy in the data from variant guns:
 		if(gun.variant) {
 			var baseIndex = _.findIndex(gunList, {"id" : gun.variant});
 			if(baseIndex === -1) {
@@ -1448,10 +1490,61 @@ app.factory('GUNS', function() {
 				if(!gun[prop]) gun[prop] = base[prop];
 			});
 		}
+
+		//	format youtube embeds:
+		if(gun.youtube) {
+			gun.embed = [];
+			for(var i=0, v; v = gun.youtube[i]; i++) {
+				gun.embed.push($sce.trustAsHtml('<iframe width="560" height="315" src="' + gun.youtube[i] + '" frameborder="0" allowfullscreen></iframe>'));
+			}
+		}
+		//	format amazon product embeds:
+		if(gun.amazon) {
+			gun.amazonEmbeds = [];
+			for(var i=0, v; v = gun.amazon[i]; i++) {
+				gun.amazonEmbeds.push($sce.trustAsHtml('<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="' + gun.amazon[i] + '"></iframe>'));
+			}
+		}
+
+		// fill in the display names of the gun's options:
+		gun.printOptions = [];
+		if(gun.options) {
+			for(var i=0; i < gun.options.length; i++) {
+				var lookup = _.find(PRINTING.options, {"name" : gun.options[i]});
+				if(lookup) gun.printOptions.push(lookup.display);
+				else gun.printOptions.push(gun.options[i]);	// if there isn't a print name specified, just send it through
+			}
+		}
+
+		//	**Variants and families:
+		// find the families that include the current gun:
+		var zzz = _.filter(FAMILIES, function(f) {
+			return _.includes(f.members, gun.id);
+		});
+
+		gun.families = _.cloneDeep(zzz);
+		for(var i=0; i < gun.families.length; i++) {
+			// translate gun IDs into actual gun data:
+			for(var j=0; j < gun.families[i].members.length; j++) {
+				var id = gun.families[i].members[j];
+				gun.families[i].members[j] = _.find(gunList, {"id" : gun.families[i].members[j]});
+			}
+		}
+
+		// if it's a variant, search for its siblings, otherwise search for its children
+		var variants = {
+			"name" : "Variants",
+			"members" : _.filter(gunList, { 'variant': gun.variant || gun.id })
+		};
+		// if it's a variant, add its parent:
+		if(gun.variant) variants.members.push(_.find(gunList, { 'id': gun.variant }));
+
+		// add the variants (if there are any) to the main list of families:
+		if(variants.members.length > 0) gun.families.push(variants);
 	});
 
 	return gunList;
-});
+}]);
 
 app.factory('FAMILIES', function() {
 	return [

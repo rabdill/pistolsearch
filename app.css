@@ -1,111 +1,67 @@
-h1 {
+md-toolbar h1 {
 	font-family: 'Alegreya', serif;
 	font-weight: 900;
 	font-style: italic;
-	font-size: 5em;
-}
-h2, h3 {
-	font-family: 'Titillium Web', sans-serif;
-}
-
-.menu li {
-	display: inline;
-	padding: 25px;
-	font-size: 1.5em;
+  font-size: 3em;
+  margin: 10px 50px;
+  color: #F5C5B5;
 }
 
+/* get rid of underlines: */
 a:link, a:visited, a:hover, a:focus, a:active {
 	text-decoration: none;
 }
 
+/* title link looks like text */
 .title:link, .title:visited, .title:hover, .title:focus, .title:active {
 	color: inherit;
 }
 
-.island {
-	background: #fff;
-	border-radius: 10px;
+.menu a:link, .menu a:visited, .menu a:focus, .menu a:active {
+	color: white;
 }
 
-.gungrid {
-	background: #fff;
-	height: 170px;
+.menu a:hover {
+	color: #C2F0FF;
 }
 
-div.island {
-	margin-left: 5px;
-	margin-right: 5px;
+.menu a:active {
+	color: #C2F0FF;
 }
+
+md-dialog {
+  min-width: 60%;
+}
+h1, h2, h3 {
+	font-family: 'Titillium Web', sans-serif;
+}
+
 th, td {
 	text-align: center;
 }
 
-body {
-	background: #E3F8FF;
+th {
+  margin-top: 20px;
 }
 
-.info {
-	font-size: 1.6em;
+td:first-child {
+  text-align: right;
 }
 
-/* animating the grid: */
-.animate-repeat.ng-move,
-.animate-repeat.ng-enter,
-.animate-repeat.ng-leave {
-  transition:all linear 0.5s;
+.menu {
+	margin: -10px 0 15px 35px;
+}
+.menu li {
+	display: inline;
+	padding: 0 15px;
 }
 
-.animate-repeat.ng-leave.ng-leave-active,
-.animate-repeat.ng-move,
-.animate-repeat.ng-enter {
-  opacity:0;
-  max-height:0;
+.md-media-sm {
+  /* prevents ngMaterial from making a stretched-out
+      square image */
+  height: auto !important;
 }
 
-.animate-repeat.ng-leave,
-.animate-repeat.ng-move.ng-move-active,
-.animate-repeat.ng-enter.ng-enter-active {
-  opacity:1;
-  max-height:30px;
-}ngrid.ng-enter.ng-enter-active,
-.gungrid.ng-leave {
-	opacity: 1;
-	width: 150px;
-	height: 30px;
-}.animate-repeat.ng-move,
-.animate-repeat.ng-enter,
-.animate-repeat.ng-leave {
-  transition:all linear 0.5s;
-}
-
-.animate-repeat.ng-leave.ng-leave-active,
-.animate-repeat.ng-move,
-.animate-repeat.ng-enter {
-  opacity:0;
-  max-height:0;
-}
-
-.animate-repeat.ng-leave,
-.animate-repeat.ng-move.ng-move-active,
-.animate-repeat.ng-enter.ng-enter-active {
-  opacity:1;
-  max-height:30px;
-}.animate-repeat.ng-move,
-.animate-repeat.ng-enter,
-.animate-repeat.ng-leave {
-  transition:all linear 0.5s;
-}
-
-.animate-repeat.ng-leave.ng-leave-active,
-.animate-repeat.ng-move,
-.animate-repeat.ng-enter {
-  opacity:0;
-  max-height:0;
-}
-
-.animate-repeat.ng-leave,
-.animate-repeat.ng-move.ng-move-active,
-.animate-repeat.ng-enter.ng-enter-active {
-  opacity:1;
-  max-height:30px;
+md-dialog img {
+  width: 325px;
 }

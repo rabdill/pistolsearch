@@ -1,5 +1,5 @@
-<div class="row">
-	<div class="col-lg-12 info">
+<md-content class="md-padding">
+	<div flex="50" flex-offset="25">
 		<h2>Gun Search Wizard</h2>
 		<p><em>Under construction; works, kinda.</em>
 		<div ng-if="!started">
@@ -21,9 +21,9 @@
 				<p><span ng-bind-html="prompt.description"></span>
 			</div>
 
-			<a class="button" href="#/">Take me to my results!</a>
+			<a href="#/">Take me to my results!</a>
 			<p><em>Selecting the "Can have" option is the same as leaving that line blank: The search won't rule out any weapons based on their having that caliber. "Can't have" will filter out any guns in that category. Selecting "Must have" for one of these will automatically remove any selections you've made elsewhere.</em></p>
 		</div>
 
 	</div>
-</div>
+</md-content>

@@ -1,9 +1,21 @@
 var app = angular.module('pistolSearch');
 
-app.controller('IndexCtrl', ['$scope', '$rootScope', '$location', 'GUNS', 'UserSearch', 'CRITERIA', function ($scope, $rootScope, $location, GUNS, UserSearch, CRITERIA) {
+app.controller('IndexCtrl', ['$scope', '$rootScope', '$location', 'GUNS', 'UserSearch', 'CRITERIA', 'PRINTING', '$mdSidenav', '$mdDialog', function ($scope, $rootScope, $location, GUNS, UserSearch, CRITERIA, PRINTING, $mdSidenav, $mdDialog) {
+
+	$scope.showTabDialog = function(gun) {
+		$scope.gun = _.find(GUNS, { 'id': gun});
+    $mdDialog.show({
+			controller: 'DetailModalCtrl',
+      templateUrl: 'views/detail_dialog.html',
+      parent: angular.element(document.body),
+      clickOutsideToClose:true,
+			locals: { gun: $scope.gun }
+    });
+  };
 
 	$scope.guns = GUNS;
 	$scope.criteria = CRITERIA;
+	$scope.printing = PRINTING;
 	$scope.selections = UserSearch.power;
 	$scope.wizard = UserSearch.wizard;
 
@@ -51,10 +63,10 @@ app.controller('IndexCtrl', ['$scope', '$rootScope', '$location', 'GUNS', 'UserS
 		for(var i=0; i < $scope.selections.options.length; i++) {
 			switch($scope.selections.options[i]) {
 				case 'must':
-					if(!_.includes(input.options, CRITERIA.options[i].name)) return false;
+					if(!_.includes(input.options, PRINTING.options[i].name)) return false;
 					break;
 				case 'cant':
-					if(_.includes(input.options, CRITERIA.options[i].name)) return false;
+					if(_.includes(input.options, PRINTING.options[i].name)) return false;
 					break;
 			}
 		}
@@ -112,80 +124,27 @@ app.controller('WizardCtrl', ['$scope', '$rootScope', '$location', '$sce', 'GUNS
 	};
 }]);
 
-app.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', '$sce', 'GUNS', 'FAMILIES', 'CRITERIA', '_', function ($scope, $rootScope, $routeParams, $sce, GUNS, FAMILIES, CRITERIA, _) {
-
-	$scope.id = $routeParams.id;
+app.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', 'GUNS', 'PRINTING', '_', function ($scope, $rootScope, $routeParams, GUNS, PRINTING, _) {
 	$scope.gun = _.find(GUNS, { 'id': $routeParams.id});
+	$scope.details = PRINTING.detailPairs;
+	$scope.measurementUnits = PRINTING.measurementUnits;
+}]);
 
-	// find the families that include the current gun:
-	var zzz = _.filter(FAMILIES, function(f) {
-		return _.includes(f.members, $routeParams.id);
-	});
+app.controller('DetailModalCtrl', ['$scope', '$rootScope', '$routeParams', 'GUNS', 'FAMILIES', 'PRINTING', '_', '$mdDialog', 'gun', function ($scope, $rootScope, $routeParams, GUNS, FAMILIES, PRINTING, _, $mdDialog, gun) {
+	// NOTE: The 'gun' parameter is injected by the initialization function
+	// in IndexCtrl. It's passed from that controller into here so we can display the gun.
+	$scope.gun = gun;
+	$scope.hide = function() {
+    $mdDialog.hide();
+  };
+  $scope.cancel = function() {
+    $mdDialog.cancel();
+  };
+  $scope.answer = function(answer) {
+    $mdDialog.hide(answer);
+  };
 
-	$scope.families = _.cloneDeep(zzz);
-	for(var i=0; i < $scope.families.length; i++) {
-		// remove the current gun from the membership list of its groups:
-		/*$scope.families[i].members = _.filter($scope.families[i].members, function(m) {
-			return m !== $routeParams.id;
-		});*/
-
-		// translate gun IDs into actual gun data:
-		for(var j=0; j < $scope.families[i].members.length; j++) {
-			var id = $scope.families[i].members[j];
-			$scope.families[i].members[j] = _.find(GUNS, {"id" : $scope.families[i].members[j]});
-		}
-	}
-
-	// if it's a variant, search for its siblings, otherwise search for its children
-	var variants = {
-		"name" : "Variants",
-		"members" : _.filter(GUNS, { 'variant': $scope.gun.variant || $scope.gun.id })
-	};
-	// if it's a variant, add its parent:
-	if($scope.gun.variant) variants.members.push(_.find(GUNS, { 'id': $scope.gun.variant }));
-
-	// add the variants (if there are any) to the main list of families:
-	if(variants.members.length > 0) $scope.families.push(variants);
-
-	// fix up the youtube embed codes:
-	if($scope.gun.youtube) {
-		// generate all the YouTube embeds:
-		$scope.embed = [];
-		for(var i=0, v; v = $scope.gun.youtube[i]; i++) {
-			$scope.embed.push($sce.trustAsHtml('<iframe width="560" height="315" src="' + $scope.gun.youtube[i] + '" frameborder="0" allowfullscreen></iframe>'));
-		}
-	}
-
-	if($scope.gun.amazon) {
-		$scope.amazon = [];
-		for(var i=0, v; v = $scope.gun.amazon[i]; i++) {
-			$scope.amazon.push($sce.trustAsHtml('<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="' + $scope.gun.amazon[i] + '"></iframe>'));
-		}
-	}
-
-	$scope.details = {
-		"Caliber" : $scope.gun.caliber,
-		"Frame material" : $scope.gun.frame,
-		"Trigger mechanism" : $scope.gun.trigger,
-		"Magazine capacity" : $scope.gun.capacity
-	};
-
-	$scope.measurementUnits = {
-		"barrel" : "in.",
-		"overall" : "in.",
-		"height" : "in.",
-		"width" : "in.",
-		"weight" : "oz."
-	};
-
-	// fill in the display names of the gun's options:
-	$scope.printOptions = [];
-	if($scope.gun.options) {
-		for(var i=0; i < $scope.gun.options.length; i++) {
-			var lookup = _.find(CRITERIA.options, {"name" : $scope.gun.options[i]});
-			if(lookup) $scope.printOptions.push(lookup.display);
-			else $scope.printOptions.push($scope.gun.options[i]);
-		}
-	}
+	$scope.details = PRINTING.detailPairs;
+	$scope.measurementUnits = PRINTING.measurementUnits;
 
 }]);
