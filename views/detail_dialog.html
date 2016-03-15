@@ -39,7 +39,7 @@
             			<li ng-repeat="(key, value) in gun.dimensions"><strong>{{ key }}:</strong> {{ value }} {{ measurementUnits[key] }}
             		</ul>
               </div>
-              <div layout="column" flex="33">
+              <div layout="column" flex="33" ng-if="gun.families.length > 0">
                 <h3>Related</h3>
             		<dl>
             			<span ng-repeat="fam in gun.families">
@@ -51,14 +51,14 @@
             </div>
           </md-content>
         </md-tab>
-        <md-tab label="videos">
+        <md-tab label="videos" ng-if="gun.embed.length > 0">
           <md-content class="md-padding">
             <span ng-repeat="v in gun.embed">
         			<span ng-bind-html="v"></span>
         		</span>
           </md-content>
         </md-tab>
-        <md-tab label="products">
+        <md-tab label="products"  ng-if="gun.amazonEmbeds.length > 0">
           <md-content class="md-padding">
             <h1 class="md-display-2">Accessories</h1>
             <span ng-repeat="a in gun.amazonEmbeds">
