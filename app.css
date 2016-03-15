@@ -17,15 +17,15 @@ a:link, a:visited, a:hover, a:focus, a:active {
 	color: inherit;
 }
 
-md-toolbar a:link, a:visited, a:focus, a:active {
+.menu a:link, .menu a:visited, .menu a:focus, .menu a:active {
 	color: white;
 }
 
-md-toolbar a:hover {
+.menu a:hover {
 	color: #C2F0FF;
 }
 
-md-toolbar a:active {
+.menu a:active {
 	color: #C2F0FF;
 }
 
