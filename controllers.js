@@ -1,6 +1,6 @@
 var app = angular.module('pistolSearch');
 
-app.controller('IndexCtrl', ['$scope', '$rootScope', '$location', 'GUNS', 'UserSearch', 'CRITERIA', '$mdSidenav', '$mdDialog', function ($scope, $rootScope, $location, GUNS, UserSearch, CRITERIA, $mdSidenav, $mdDialog) {
+app.controller('IndexCtrl', ['$scope', '$rootScope', '$location', 'GUNS', 'UserSearch', 'CRITERIA', 'PRINTING', '$mdSidenav', '$mdDialog', function ($scope, $rootScope, $location, GUNS, UserSearch, CRITERIA, PRINTING, $mdSidenav, $mdDialog) {
 
 	$scope.showTabDialog = function(gun) {
 		$scope.gun = _.find(GUNS, { 'id': gun});
@@ -15,6 +15,7 @@ app.controller('IndexCtrl', ['$scope', '$rootScope', '$location', 'GUNS', 'UserS
 
 	$scope.guns = GUNS;
 	$scope.criteria = CRITERIA;
+	$scope.printing = PRINTING;
 	$scope.selections = UserSearch.power;
 	$scope.wizard = UserSearch.wizard;
 
@@ -62,10 +63,10 @@ app.controller('IndexCtrl', ['$scope', '$rootScope', '$location', 'GUNS', 'UserS
 		for(var i=0; i < $scope.selections.options.length; i++) {
 			switch($scope.selections.options[i]) {
 				case 'must':
-					if(!_.includes(input.options, CRITERIA.options[i].name)) return false;
+					if(!_.includes(input.options, PRINTING.options[i].name)) return false;
 					break;
 				case 'cant':
-					if(_.includes(input.options, CRITERIA.options[i].name)) return false;
+					if(_.includes(input.options, PRINTING.options[i].name)) return false;
 					break;
 			}
 		}
