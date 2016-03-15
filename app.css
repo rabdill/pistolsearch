@@ -17,6 +17,18 @@ a:link, a:visited, a:hover, a:focus, a:active {
 	color: inherit;
 }
 
+md-toolbar a:link, a:visited, a:focus, a:active {
+	color: white;
+}
+
+md-toolbar a:hover {
+	color: #C2F0FF;
+}
+
+md-toolbar a:active {
+	color: #C2F0FF;
+}
+
 md-dialog {
   min-width: 60%;
 }
