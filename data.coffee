@@ -1,13 +1,13 @@
-var app = angular.module('pistolSearch');
+app = angular.module 'pistolSearch'
 
-app.factory('CRITERIA', ['_', 'GUNS', function (_, GUNS) {
-	var criteria = {};
+app.factory 'CRITERIA', ['_', 'GUNS', (_, GUNS) ->
+	criteria = {}
 
 	criteria.categories = [
 		{
 			"display" : "Caliber",
 			"field" : "caliber",
-			"exclusive" : true	// whether more than one value can be true in a category
+			"exclusive" : true	# whether more than one value can be true in a category
 		},
 		{
 			"display" : "Frame",
@@ -24,94 +24,87 @@ app.factory('CRITERIA', ['_', 'GUNS', function (_, GUNS) {
 			"field" : "manufacturer",
 			"exclusive" : true
 		},
-	];
-
-	// populate the categories:
-	// for each category, go through all the guns and
-	// find the unique options for the user to choose.
-	for(var i=0; i < criteria.categories.length; i++) {
-		// add a "members" field to each criteria
-		criteria.categories[i].members = [];
-
-		var name = criteria.categories[i].field;
-		for(var j=0, gun; gun = GUNS[j]; j++) {
-			var index = _.findIndex(criteria.categories, { 'field': name });
-			// if it's new, add it:
-			if(!_.includes(criteria.categories[index].members, gun[name])) {
-					criteria.categories[index].members.push(gun[name]);
-			}
-		}
-	}
-
-	return criteria;
-}]);
-
-app.factory('PRINTING', function() {
-	var printing = {};
-	//	where within a gun's schema to find the details we display in the "Detail" page:
-	printing.detailPairs = {
-		"Caliber" : 'caliber',
-		"Frame material" : 'frame',
-		"Trigger mechanism" : 'trigger',
-		"Magazine capacity" : 'capacity',
-	};
-
-	printing.measurementUnits = {
-		"barrel" : "in.",
-		"overall" : "in.",
-		"height" : "in.",
-		"width" : "in.",
-		"weight" : "oz."
-	};
-
-	printing.options = [
-		{
-			"display" : "Front accessory rail",
-			"name" : "rail"
-		},
-		{
-			"display" : "Decocker",
-			"name" : "decocker"
-		},
-		{
-			"display" : "Threaded barrel",
-			"name" : "threaded"
-		},
-		{
-			"display" : "Thumb safety",
-			"name" : "safety"
-		},
-		{
-			"display" : "Grip safety",
-			"name" : "grip"
-		},
-		{
-			"display" : "Drop safety",
-			"name" : "drop"
-		},
-		{
-			"display" : "Trigger safety",
-			"name" : "trigger"
-		},
-		{
-			"display" : "Firing pin block",
-			"name" : "firing pin"
-		},
-		/*{	data not reliable enough for this yet
-			"display" : "Magazine safety",
-			"name" : "magazine safety"
-		},*/
-
 	]
 
+	###
+	populate the categories:
+	for each category, go through all the guns and
+	find the unique options for the user to choose.
+	###
+	for category in criteria.categories
+		# add a "members" field to each criteria
+		category.members = []
+
+		name = category.field;
+		for gun in GUNS
+			index = _.findIndex criteria.categories, { 'field': name }
+			# if it's new, add it:
+			if not _.includes criteria.categories[index].members, gun[name]
+					criteria.categories[index].members.push gun[name]
+
+	return criteria;
+]
+
+app.factory 'PRINTING',->
+	printing =
+		detailPairs:	# where within a gun's schema to find the details we display in the "Detail" page:
+			"Caliber" : 'caliber'
+			"Frame material" : 'frame'
+			"Trigger mechanism" : 'trigger'
+			"Magazine capacity" : 'capacity'
+		measurementUnits:
+			"barrel" : "in."
+			"overall" : "in."
+			"height" : "in."
+			"width" : "in."
+			"weight" : "oz."
+		options: [
+			{
+				"display" : "Front accessory rail",
+				"name" : "rail"
+			},
+			{
+				"display" : "Decocker",
+				"name" : "decocker"
+			},
+			{
+				"display" : "Threaded barrel",
+				"name" : "threaded"
+			},
+			{
+				"display" : "Thumb safety",
+				"name" : "safety"
+			},
+			{
+				"display" : "Grip safety",
+				"name" : "grip"
+			},
+			{
+				"display" : "Drop safety",
+				"name" : "drop"
+			},
+			{
+				"display" : "Trigger safety",
+				"name" : "trigger"
+			},
+			{
+				"display" : "Firing pin block",
+				"name" : "firing pin"
+			}
+		]
+
 	return printing;
-});
-// NOTE: The gun data is registered as a separate module
-//	to make it easier to mock in Protractor tests. That I know
-//	of, the simplest way to mock a service is to dump the whole
-//	module and add in a fake one using addMockModule.
-var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', 'FAMILIES', '$sce', function(PRINTING, FAMILIES, $sce) {
-	var gunList = [
+
+###
+NOTE: The gun data is registered as a separate module
+to make it easier to mock in Protractor tests. That I know
+of, the simplest way to mock a service is to dump the whole
+module and add in a fake one using addMockModule.
+###
+dataThing = angular.module 'gunData', []
+
+dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, $sce) ->
+	gunList = [
 		{
 			"id" : "CZ-75B9",
 			"manufacturer" : "CZ",
@@ -403,7 +396,7 @@ var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', 'FAMI
 			"youtube" : [
 				"https://www.youtube.com/embed/R1ePVd6hKeE",
 				"https://www.youtube.com/embed/jolIaRoOI_g",
-				"https://www.youtube.com/embed/ODt-bW1eD5M",	// also for M&P 40
+				"https://www.youtube.com/embed/ODt-bW1eD5M",	# also for M&P 40
 			],
 			"amazon" : [
 				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B016ISRE88&asins=B016ISRE88&linkId=MCB4IHD36N4MAGVN&show_border=true&link_opens_in_new_window=true",
@@ -566,7 +559,7 @@ var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', 'FAMI
 				"rail",
 			],
 			"youtube" : [
-				"https://www.youtube.com/embed/jo317hYV-ag",	// also springfield xdm
+				"https://www.youtube.com/embed/jo317hYV-ag",	# also springfield xdm
 				"https://www.youtube.com/embed/Eynv1q_Ttb0",
 				"https://www.youtube.com/embed/iOIHgwVDy-U",
 				"https://www.youtube.com/embed/vvHZFNGz7xg"
@@ -1055,7 +1048,7 @@ var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', 'FAMI
 			"capacity" : 10,
 			"magazine" : "double",
 			"dimensions" : {
-				"barrel" :  4.5,
+				"barrel" : 4.5,
 				"overall" : 8.05,
 				"height" : 0,
 				"width" : 0,
@@ -1079,7 +1072,7 @@ var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', 'FAMI
 			"image" : "/img/sw-mp45-4.jpg",
 			"link" : "http://www.smith-wesson.com/webapp/wcs/stores/servlet/Product4_750001_750051_765736",
 			"dimensions" : {
-				"barrel" :  4.0,
+				"barrel" : 4.0,
 				"overall" : 7.55,
 				"height" : 0,
 				"width" : 0,
@@ -1124,7 +1117,7 @@ var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', 'FAMI
 			"capacity" : 8,
 			"magazine" : "double",
 			"dimensions" : {
-				"barrel" :  4.0,
+				"barrel" : 4.0,
 				"overall" : 7.55,
 				"height" : 0,
 				"width" : 1.2,
@@ -1227,7 +1220,7 @@ var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', 'FAMI
 			"capacity" : 17,
 			"magazine" : "double",
 			"dimensions" : {
-				"barrel" :  4.25,
+				"barrel" : 4.25,
 				"overall" : 7.63,
 				"height" : 0,
 				"width" : 0,
@@ -1268,7 +1261,7 @@ var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', 'FAMI
 			"capacity" : 17,
 			"magazine" : "double",
 			"dimensions" : {
-				"barrel" :  5.0,
+				"barrel" : 5.0,
 				"overall" : 8.5,
 				"height" : 0,
 				"width" : 0,
@@ -1296,7 +1289,7 @@ var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', 'FAMI
 			"capacity" : 12,
 			"magazine" : "double",
 			"dimensions" : {
-				"barrel" :  3.5,
+				"barrel" : 3.5,
 				"overall" : 6.7,
 				"height" : 0,
 				"width" : 0,
@@ -1339,7 +1332,7 @@ var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', 'FAMI
 			"capacity" : 15,
 			"magazine" : "double",
 			"dimensions" : {
-				"barrel" :  4.9,
+				"barrel" : 4.9,
 				"overall" : 8.5,
 				"height" : 5.4,
 				"width" : 1.5,
@@ -1393,7 +1386,7 @@ var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', 'FAMI
 			"capacity" : 17,
 			"magazine" : "double",
 			"dimensions" : {
-				"barrel" :  4.9,
+				"barrel" : 4.9,
 				"overall" : 8.5,
 				"height" : 5.4,
 				"width" : 1.5,
@@ -1458,7 +1451,7 @@ var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', 'FAMI
 			"capacity" : 15,
 			"magazine" : "single",
 			"dimensions" : {
-				"barrel" :  4.9,
+				"barrel" : 4.9,
 				"overall" : 8.5,
 				"height" : 5.4,
 				"width" : 1.52,
@@ -1472,81 +1465,70 @@ var dataThing = angular.module('gunData', []).factory('GUNS', ['PRINTING', 'FAMI
 				"https://www.youtube.com/embed/TY4s9HVhu44",
 			],
 		},
-	];
+	]
 
-	// massage the datas:
-	_(gunList).forEach(function(gun) {
-		// copy in the data from variant guns:
-		if(gun.variant) {
-			var baseIndex = _.findIndex(gunList, {"id" : gun.variant});
-			if(baseIndex === -1) {
-				console.log("WARN: Variant of gun " + gun.id + " doesn't exist.");
-				return;
-			}
-			var base = gunList[baseIndex];
-			var baseProperties = _.keysIn(base);
+	# massage the datas:
+	for gun in gunList
+		# copy in the data from variant guns:
+		if gun.variant
+			baseIndex = _.findIndex gunList, {"id" : gun.variant}
+			if baseIndex == -1
+				console.log("WARN: Variant of gun " + gun.id + " doesn't exist.")
+				return
+			base = gunList[baseIndex]
+			baseProperties = _.keysIn(base)
 
-			_(baseProperties).forEach(function(prop) {
-				if(!gun[prop]) gun[prop] = base[prop];
-			});
-		}
+			for prop in baseProperties
+				 gun[prop] = base[prop] if !gun[prop]
 
-		//	format youtube embeds:
-		if(gun.youtube) {
-			gun.embed = [];
-			for(var i=0, v; v = gun.youtube[i]; i++) {
-				gun.embed.push($sce.trustAsHtml('<iframe width="560" height="315" src="' + gun.youtube[i] + '" frameborder="0" allowfullscreen></iframe>'));
-			}
-		}
-		//	format amazon product embeds:
-		if(gun.amazon) {
+		# format youtube embeds:
+		if gun.youtube
+			gun.embed = []
+			for video in gun.youtube
+				gun.embed.push $sce.trustAsHtml '<iframe width="560" height="315" src="' + video + '" frameborder="0" allowfullscreen></iframe>'
+
+		# format amazon product embeds:
+		if gun.amazon
 			gun.amazonEmbeds = [];
-			for(var i=0, v; v = gun.amazon[i]; i++) {
-				gun.amazonEmbeds.push($sce.trustAsHtml('<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="' + gun.amazon[i] + '"></iframe>'));
-			}
-		}
+			for product in gun.amazon
+				gun.amazonEmbeds.push $sce.trustAsHtml '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="' + product + '"></iframe>'
 
-		// fill in the display names of the gun's options:
+		# fill in the display names of the gun's options:
 		gun.printOptions = [];
-		if(gun.options) {
-			for(var i=0; i < gun.options.length; i++) {
-				var lookup = _.find(PRINTING.options, {"name" : gun.options[i]});
-				if(lookup) gun.printOptions.push(lookup.display);
-				else gun.printOptions.push(gun.options[i]);	// if there isn't a print name specified, just send it through
-			}
-		}
+		if gun.options
+			for option in gun.options
+				lookup = _.find PRINTING.options, {"name" : option}
+				if lookup?
+					gun.printOptions.push lookup.display
+				else
+					gun.printOptions.push option	# if there isn't a print name specified, just send it through
 
-		//	**Variants and families:
-		// find the families that include the current gun:
-		var zzz = _.filter(FAMILIES, function(f) {
-			return _.includes(f.members, gun.id);
-		});
+		# **Variants and families:
+		# find the families that include the current gun:
+		zzz = _.filter FAMILIES, (f) ->
+			return _.includes(f.members, gun.id)
 
-		gun.families = _.cloneDeep(zzz);
-		for(var i=0; i < gun.families.length; i++) {
-			// translate gun IDs into actual gun data:
-			for(var j=0; j < gun.families[i].members.length; j++) {
-				var id = gun.families[i].members[j];
-				gun.families[i].members[j] = _.find(gunList, {"id" : gun.families[i].members[j]});
-			}
-		}
+		gun.families = _.cloneDeep zzz
+		for family, findex in gun.families
+			# translate gun IDs into actual gun data, replace the IDs:
+			for member, mindex in family.members
+				gun.families[findex].members[mindex] = _.find gunList, {"id" : member}
 
-		// if it's a variant, search for its siblings, otherwise search for its children
-		var variants = {
+		# if it's a variant, search for its siblings, otherwise search for its children
+		variants =
 			"name" : "Variants",
-			"members" : _.filter(gunList, { 'variant': gun.variant || gun.id })
-		};
-		// if it's a variant, add its parent:
-		if(gun.variant) variants.members.push(_.find(gunList, { 'id': gun.variant }));
+			"members" : _.filter gunList, { 'variant': gun.variant || gun.id }
 
-		// add the variants (if there are any) to the main list of families:
-		if(variants.members.length > 0) gun.families.push(variants);
-	});
+		# if it's a variant, add its parent:
+		if gun.variant then variants.members.push _.find gunList, { 'id': gun.variant }
+
+		# add the variants (if there are any) to the main list of families:
+		if variants.members.length > 0 then gun.families.push variants
 
 	return gunList;
-}]);
+]
 
-app.factory('FAMILIES', function() {
+app.factory 'FAMILIES', ->
 	return [
 		{
 			"name" : "9mm Glocks",
@@ -1586,34 +1568,31 @@ app.factory('FAMILIES', function() {
 				"Glock39"
 			]
 		},
-	];
-});
+	]
 
-app.factory('WIZARD', function() {
-	var self = {};
-
-	self.caliberPrompts = [
-		{
-			"name" : ".22LR",
-			"description" : "The <strong>.22 Long Rifle</strong> cartridge, also known simply as the \".22.\" The smallest of the bunch and the only rimfire cartridge on the list &ndash; most modern pistols use \"centerfire\" cartridges, which position the explosive primer in the center of the rear of the cartridge instead of around the edges. A popular \"plinking\" ammo because it's cheap, (usually) easy to find, and has minimal noise and recoil. Potentially useful for varmint shooting, but doesn't commonly come up in conversations about concealed carry.",
-		},
-		{
-			"name" : ".380 ACP",
-			"description" : "The <strong>.380 ACP</strong> cartridge, among the first modern \"pocket pistol\" calibers, is considered on the borderline of effectiveness for concealed carry &ndash; which side of that border it's on depends on whom you ask. Essentially a shorter 9mm round, .380 ACP fires lighter bullets at lower velocities, which reduces the physical requirements of handguns chambered to fire it. As a result, it's a popular choice for those who require deep concealment or a \"BUG\" (back-up gun) to go along with their primary carry gun.",
-		},
-		{
-			"name" : "9mm",
-			"description" : "Refers specifically to the <strong>9x19 mm Parabellum</strong> round, also known as <a href='https://en.wikipedia.org/wiki/9%C3%9719mm_Parabellum'>9mm Luger</a> or, more commonly, just \"9mm.\" The standard-issue sidearm of the U.S. Army for the past 30 years <a href='http://www.military.com/daily-news/2014/07/03/army-wants-a-harder-hitting-pistol.html'>(but possibly not forever)</a> and a popular choice for concealed carry because it has <a href='http://www.luckygunner.com/labs/self-defense-ammo-ballistic-tests/'>better performance</a> than smaller cartridges but doesn't require the weight and bulk of large cartridges like the .45 ACP.",
-		},
-		{
-			"name" : ".40 S\&W",
-			"description" : "A lower-recoil variant of the 10mm cartridge, developed by Smith \& Wesson for the Federal Bureau of Investigations. While most popular handgun cartridges were developed in the first half of the 20th century, the .40 S\&W didn't appear on the scene until almost 1990, but has grown in popularity from a practical law enforcement caliber with enhanced stopping power into a commonly chosen consumer option offered by most large weapons manufacturers. <p>The increased power allows .40 rounds to propel rounds heavier than the 9mm at almost identical speeds, at the predictable cost of reduced magazine capacity and slightly larger slides.",
-		},
-		{
-			"name" : ".45 ACP",
-			"description" : "A heavier bullet, fired at lower velocities. The famed M1911 designed by John Browning is chambered in .45 and was the standard-issue sidearm of the U.S. Army through two world wars and the majority of the 20th century. Its increased diameter is usually associated either with reduced magazine capacity or grip sizes notably larger than smaller-caliber handguns.",
-		},
-	];
+app.factory 'WIZARD', ->
+	self =
+		caliberPrompts: [
+			{
+				"name" : ".22LR",
+				"description" : "The <strong>.22 Long Rifle</strong> cartridge, also known simply as the \".22.\" The smallest of the bunch and the only rimfire cartridge on the list &ndash; most modern pistols use \"centerfire\" cartridges, which position the explosive primer in the center of the rear of the cartridge instead of around the edges. A popular \"plinking\" ammo because it's cheap, (usually) easy to find, and has minimal noise and recoil. Potentially useful for varmint shooting, but doesn't commonly come up in conversations about concealed carry.",
+			},
+			{
+				"name" : ".380 ACP",
+				"description" : "The <strong>.380 ACP</strong> cartridge, among the first modern \"pocket pistol\" calibers, is considered on the borderline of effectiveness for concealed carry &ndash; which side of that border it's on depends on whom you ask. Essentially a shorter 9mm round, .380 ACP fires lighter bullets at lower velocities, which reduces the physical requirements of handguns chambered to fire it. As a result, it's a popular choice for those who require deep concealment or a \"BUG\" (back-up gun) to go along with their primary carry gun.",
+			},
+			{
+				"name" : "9mm",
+				"description" : "Refers specifically to the <strong>9x19 mm Parabellum</strong> round, also known as <a href='https://en.wikipedia.org/wiki/9%C3%9719mm_Parabellum'>9mm Luger</a> or, more commonly, just \"9mm.\" The standard-issue sidearm of the U.S. Army for the past 30 years <a href='http://www.military.com/daily-news/2014/07/03/army-wants-a-harder-hitting-pistol.html'>(but possibly not forever)</a> and a popular choice for concealed carry because it has <a href='http://www.luckygunner.com/labs/self-defense-ammo-ballistic-tests/'>better performance</a> than smaller cartridges but doesn't require the weight and bulk of large cartridges like the .45 ACP.",
+			},
+			{
+				"name" : ".40 S\&W",
+				"description" : "A lower-recoil variant of the 10mm cartridge, developed by Smith \& Wesson for the Federal Bureau of Investigations. While most popular handgun cartridges were developed in the first half of the 20th century, the .40 S\&W didn't appear on the scene until almost 1990, but has grown in popularity from a practical law enforcement caliber with enhanced stopping power into a commonly chosen consumer option offered by most large weapons manufacturers. <p>The increased power allows .40 rounds to propel rounds heavier than the 9mm at almost identical speeds, at the predictable cost of reduced magazine capacity and slightly larger slides.",
+			},
+			{
+				"name" : ".45 ACP",
+				"description" : "A heavier bullet, fired at lower velocities. The famed M1911 designed by John Browning is chambered in .45 and was the standard-issue sidearm of the U.S. Army through two world wars and the majority of the 20th century. Its increased diameter is usually associated either with reduced magazine capacity or grip sizes notably larger than smaller-caliber handguns.",
+			},
+		]
 
 	return self;
-})
