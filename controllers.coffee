@@ -19,6 +19,14 @@ app.controller 'IndexCtrl', ['$scope', '$rootScope', '$location', 'GUNS', 'UserS
 
 	$scope.display = "table";
 
+	$scope.checkExclusives = (category, selection) ->
+		# (when they come in, "category" and "selection" are array indices.)
+		if CRITERIA.categories[category].exclusive
+			for member, index in CRITERIA.categories[category].members
+				# if it's selected but NOT the one the user just selected:
+				if $scope.selections.categories[category][index] == 'must' and index isnt selection
+					$scope.selections.categories[category][index] = 'can'
+
 	$scope.process = do ->
 		# find the selection section for caliber
 		caliberIndex = _.findIndex $scope.criteria.categories, {'field' : 'caliber'}
@@ -27,14 +35,6 @@ app.controller 'IndexCtrl', ['$scope', '$rootScope', '$location', 'GUNS', 'UserS
 			$scope.selections.categories[caliberIndex][index] = $scope.wizard.caliber[member] if $scope.wizard.caliber[member]?
 
 		$location.path('/');
-
-	$scope.checkExclusives = (category, selection) ->
-		# (when they come in, "category" and "selection" are array indices.)
-		if CRITERIA.categories[category].exclusive
-			for member, index in CRITERIA.categories[category].members
-				# if it's selected but NOT the one the user just selected:
-				if $scope.selections.categories[category][index] == 'must' and index isnt selection
-					$scope.selections.categories[category][index] = 'can'
 
 	# the filter
 	$scope.masterGun = (input) ->
@@ -82,7 +82,7 @@ app.controller 'WizardCtrl', ['$scope', '$rootScope', '$location', '$sce', 'GUNS
 	trying to run $sce.trustAs on something that's already been run through it
 	throws a janky error.
 	###
-	prompt.description = $sce.trustAsHtml p.description for prompt in prompts when typeof prompt.description == 'string'
+	prompt.description = $sce.trustAsHtml prompt.description for prompt in prompts when typeof prompt.description == 'string'
 
 	$scope.prompt = prompts[$scope.currentPrompt];
 
