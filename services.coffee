@@ -4,12 +4,7 @@ app.factory 'UserSearch', ['_', 'CRITERIA', (_, CRITERIA) ->
 	self = {};
 	# build an empty 2-dimensional array to store choices in the power search:
 	self.power =
-		categories: [
-			[],
-			[],
-			[],
-			[]
-		]
+		categories: _.fill(Array(4), [])
 		options: []
 	###
 		NOTE: self.power.categories is set up this way instead of using _.fill() because
