@@ -1474,7 +1474,7 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"msrp" : 259
 			"link" : "http://ruger.com/products/lcp/specSheets/3701.html"
 			"caliber" : ".380 ACP"
-			"frame" : "glass-filled nylon"
+			"frame" : "polymer"
 			"trigger" : "hammer SA"
 			"capacity" : 7
 			"magazine" : "single"
@@ -1503,7 +1503,7 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"msrp" : 479
 			"link" : "http://ruger.com/products/lc9s/specSheets/3235.html"
 			"caliber" : "9mm"
-			"frame" : "glass-filled nylon"
+			"frame" : "polymer"
 			"trigger" : "striker"
 			"capacity" : 7
 			"magazine" : "single"
@@ -1531,7 +1531,7 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"msrp" : 479
 			"link" : "http://ruger.com/products/lc9s/specSheets/3248.html"
 			"caliber" : "9mm"
-			"frame" : "glass-filled nylon"
+			"frame" : "polymer"
 			"trigger" : "striker"
 			"capacity" : 7
 			"magazine" : "single"
@@ -1558,7 +1558,7 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"msrp" : 479
 			"link" : "http://ruger.com/products/lc380/specSheets/3219.html"
 			"caliber" : "9mm"
-			"frame" : "glass-filled nylon"
+			"frame" : "polymer"
 			"trigger" : "striker"
 			"capacity" : 7
 			"magazine" : "single"
@@ -1586,7 +1586,7 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"msrp" : 459
 			"link" : "http://ruger.com/products/9E/specSheets/3340.html"
 			"caliber" : "9mm"
-			"frame" : "glass-filled nylon"
+			"frame" : "polymer"
 			"trigger" : "striker"
 			"capacity" : 17
 			"magazine" : "double"
@@ -1599,6 +1599,7 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			}
 			"options" : [
 				"safety"
+				"rail"
 			]
 			"youtube" : [
 				"https://www.youtube.com/embed/a2zlfdqTNr0"
@@ -1607,31 +1608,295 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			]
 		}
 		{
-			"id" : "aaaa"
+			"id" : "ruger-sr9"
 			"manufacturer" : "Ruger"
-			"name" : "aaaa"
-			"description" : "aaaa"
-			"image" : "/img/beretta-m9-22.png"
-			"msrp" : 430
-			"link" : "aaaa"
-			"caliber" : "aaaa"
-			"frame" : "aluminum alloy"
-			"trigger" : "aaaa"
+			"name" : "SR9"
+			"description" : "Ruger's full-size 9mm. Slide available either in stainless steel or with a black nitride finish."
+			"image" : "/img/ruger-sr9.jpg"
+			"msrp" : 569
+			"link" : "http://ruger.com/products/sr9/specSheets/3301.html"
+			"caliber" : "9mm"
+			"frame" : "polymer"
+			"trigger" : "striker"
+			"capacity" : 17
+			"magazine" : "double"
+			"dimensions" : {
+				"barrel" : 4.14
+				"overall" : 7.5
+				"height" : 5.52
+				"width" : 1.27
+				"weight" : 26.5
+			}
+			"options" : [
+				"safety",
+				"rail"
+			]
+			"youtube" : [
+				"https://www.youtube.com/embed/ysokL6pHf1I"
+				"https://www.youtube.com/embed/apzCB-gLAPg"
+				"https://www.youtube.com/embed/E1YMWh94L84"
+			]
+		}
+		{
+			"id" : "ruger-sr9c"
+			"manufacturer" : "Ruger"
+			"name" : "SR9c"
+			"description" : "The compact version of the SR9. Slide available either in stainless steel or with a black nitride finish. Also ships with a full-size 17-round magazine and slip-on grip extension."
+			"image" : "/img/ruger-sr9c.jpg"
+			"msrp" : 569
+			"link" : "http://ruger.com/products/sr9c/specSheets/3313.html"
+			"caliber" : "9mm"
+			"frame" : "polymer"
+			"trigger" : "striker"
+			"capacity" : 10
+			"magazine" : "double"
+			"dimensions" : {
+				"barrel" : 3.4
+				"overall" : 6.85
+				"height" : 4.61
+				"width" : 1.27
+				"weight" : 23.4
+			}
+			"options" : [
+				"safety",
+				"rail",
+				"magazine safety"
+			]
+			"youtube" : [
+				"https://www.youtube.com/embed/zT1q1C_PnIY"
+				"https://www.youtube.com/embed/XjP_Mj4P4Y8"
+				"https://www.youtube.com/embed/vyP5gEjQ58g"
+				"https://www.youtube.com/embed/lpj9Pwv6TTY"
+			]
+		}
+		{
+			"id" : "ruger-sr40"
+			"manufacturer" : "Ruger"
+			"name" : "SR40"
+			"description" : "Ruger's .40 caliber full-size handgun. Almost identical dimensions to the 9mm version, the SR9."
+			"image" : "/img/ruger-sr40.jpg"
+			"msrp" : 569
+			"link" : "http://ruger.com/products/sr40/specSheets/3470.html"
+			"caliber" : ".40 S&W"
+			"frame" : "polymer"
+			"trigger" : "striker"
 			"capacity" : 15
+			"magazine" : "double"
+			"dimensions" : {
+				"barrel" : 4.14
+				"overall" : 7.5
+				"height" : 5.52
+				"width" : 1.27
+				"weight" : 27.2
+			}
+			"options" : [
+				"safety",
+				"rail",
+				"magazine safety"
+			]
+			"youtube" : [
+				"https://www.youtube.com/embed/mYDYE9kynbI"
+				"https://www.youtube.com/embed/1XVrBv7ldOs"
+			]
+		}
+		{
+			"id" : "ruger-sr40c"
+			"manufacturer" : "Ruger"
+			"name" : "SR40c"
+			"description" : "The compact version of the SR40, with near-identical dimensions to their 9mm compact, the SR9c. Slide available either in stainless steel or with a black nitride finish. Also ships with a full-size 15-round magazine and slip-on grip extension."
+			"image" : "/img/ruger-sr40c.jpg"
+			"msrp" : 569
+			"link" : "http://ruger.com/products/sr40c/specSheets/3476.html"
+			"caliber" : ".40 S&W"
+			"frame" : "polymer"
+			"trigger" : "striker"
+			"capacity" : 10
+			"magazine" : "double"
+			"dimensions" : {
+				"barrel" : 3.5
+				"overall" : 6.85
+				"height" : 4.61
+				"width" : 1.27
+				"weight" : 23.4
+			}
+			"options" : [
+				"safety",
+				"rail",
+				"magazine safety"
+			]
+			"youtube" : [
+				"https://www.youtube.com/embed/LNlqwm6_ol8"
+				"https://www.youtube.com/embed/ilpj82qwJQY"
+				"https://www.youtube.com/embed/mElslmZN9g4"
+			]
+		}
+		{
+			"id" : "ruger-sr45"
+			"manufacturer" : "Ruger"
+			"name" : "SR45"
+			"description" : "Ruger's full-size offering in .45. Slide available either in stainless steel or with a black nitride finish"
+			"image" : "/img/ruger-sr45.jpg"
+			"msrp" : 569
+			"link" : "http://ruger.com/products/sr40c/specSheets/3476.html"
+			"caliber" : ".45 ACP"
+			"frame" : "polymer"
+			"trigger" : "striker"
+			"capacity" : 10
+			"magazine" : "double"
+			"dimensions" : {
+				"barrel" : 4.5
+				"overall" : 8.0
+				"height" : 5.75
+				"width" : 1.27
+				"weight" : 30.1
+			}
+			"options" : [
+				"safety",
+				"rail",
+				"magazine safety"
+			]
+			"youtube" : [
+				"https://www.youtube.com/embed/R4LVmk1rPNw"
+				"https://www.youtube.com/embed/YsFr8ZFSQOw"
+				"https://www.youtube.com/embed/BoqIJr0V3mw"
+			]
+		}
+		{
+			"id" : "ruger-american9"
+			"manufacturer" : "Ruger"
+			"name" : "American"
+			"subname" : "9mm"
+			"description" : "Part of Ruger's new line of full-size handgun aimed at the military market. Also available in .45 ACP."
+			"image" : "/img/ruger-american9.jpg"
+			"msrp" : 569
+			"link" : "http://ruger.com/products/rugerAmericanPistol/specSheets/8605.html"
+			"caliber" : "9mm"
+			"frame" : "polymer"
+			"trigger" : "striker"
+			"capacity" : 17
+			"magazine" : "double"
+			"dimensions" : {
+				"barrel" : 4.2
+				"overall" : 7.5
+				"height" : 5.6
+				"width" : 1.4
+				"weight" : 30.0
+			}
+			"options" : [
+				"rail"
+			]
+			"youtube" : [
+				"https://www.youtube.com/embed/FEGqYYgSljE"
+			]
+		}
+		{
+			"id" : "ruger-american45"
+			"manufacturer" : "Ruger"
+			"name" : "American"
+			"subname" : ".45"
+			"description" : "Part of Ruger's new line of full-size handgun aimed at the military market. Also available in 9mm."
+			"image" : "/img/ruger-american45.jpg"
+			"msrp" : 579
+			"link" : "http://ruger.com/products/rugerAmericanPistol/specSheets/8615.html"
+			"caliber" : ".45 ACP"
+			"frame" : "polymer"
+			"trigger" : "striker"
+			"capacity" : 10
+			"magazine" : "double"
+			"dimensions" : {
+				"barrel" : 4.5
+				"overall" : 8.0
+				"height" : 5.7
+				"width" : 1.4
+				"weight" : 31.5
+			}
+			"options" : [
+				"rail"
+			]
+			"youtube" : [
+				"https://www.youtube.com/embed/NKUAxAc6NWk"
+			]
+		}
+		{
+			"id" : "ruger-sr1911standard"
+			"manufacturer" : "Ruger"
+			"name" : "SR1911"
+			"subname" : "Standard"
+			"description" : "Ruger's take on the classic 1911, available in standard size, a mid-size \"Commander\" model, and a \"lightweight\" version."
+			"image" : "/img/ruger-sr1911standard.jpg"
+			"msrp" : 939
+			"link" : "http://ruger.com/products/sr1911/specSheets/6700.html"
+			"caliber" : ".45 ACP"
+			"frame" : "steel"
+			"trigger" : "hammer SA"
+			"capacity" : 8
 			"magazine" : "single"
 			"dimensions" : {
-				"barrel" : 4
-				"overall" : 8
-				"height" : 5
-				"width" : 1
-				"weight" : 26
+				"barrel" : 5.0
+				"overall" : 8.67
+				"height" : 5.45
+				"width" : 1.34
+				"weight" : 39.0
 			}
 			"options" : [
 				"safety"
+				"grip safety"
+			]
+			"youtube" : [
+				"https://www.youtube.com/embed/CAZ5EYxpl2o"
+			]
+		}
+		{
+			"id" : "ruger-sr1911commander"
+			"variant" : "ruger-sr1911standard"
+			"subname" : "Commander"
+			"image" : "/img/ruger-sr1911commander.jpg"
+			"link" : "http://ruger.com/products/sr1911/specSheets/6702.html"
+			"capacity" : 7
+			"dimensions" : {
+				"barrel" : 4.25
+				"overall" : 8.67
+				"height" : 5.45
+				"width" : 1.34
+				"weight" : 36.4
+			}
+		}
+		{
+			"id" : "ruger-sr1911lightweight"
+			"variant" : "ruger-sr1911commander"
+			"description" : "Ruger's 1911, in the \"Commander\" size but with an anodized aluminum frame instead of stainless steel."
+			"image" : "/img/ruger-sr1911lightweight.jpg"
+			"subname" : "Lightweight"
+			"msrp" : 979
+			"link" : "http://ruger.com/products/sr1911/specSheets/6711.html"
+		}
+		{
+			"id" : "ruger-sr22"
+			"manufacturer" : "Ruger"
+			"name" : "SR22"
+			"description" : "The .22-caliber variant in Ruger's long-standing SR line. The slide is aluminum, not steel. Also available with a threaded barrel."
+			"image" : "/img/ruger-sr22.jpg"
+			"msrp" : 439
+			"link" : "http://ruger.com/products/sr22Pistol/specSheets/3600.html"
+			"caliber" : ".22 LR"
+			"frame" : "polymer"
+			"trigger" : "hammer SA/DA"
+			"capacity" : 10
+			"magazine" : "single"
+			"dimensions" : {
+				"barrel" : 3.5
+				"overall" : 6.4
+				"height" : 4.9
+				"width" : 0.97
+				"weight" : 17.5
+			}
+			"options" : [
+				"safety"
+				"rail"
 				"decocker"
 			]
 			"youtube" : [
-				"https://www.youtube.com/embed/TY4s9HVhu44"
+				"https://www.youtube.com/embed/FWNRG7xBPPk"
 			]
 		}
 	]
