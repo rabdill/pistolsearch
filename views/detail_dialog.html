@@ -29,6 +29,7 @@
               <div layout="column" flex="33">
                 <h3>Details</h3>
                 <ul>
+                  <li ng-if="gun.msrp"><strong>MSRP:</strong> ${{ gun.msrp }}
                   <li ng-repeat="(key, value) in details"><strong>{{ key }}:</strong> {{ gun[value] }}
                   <li ng-repeat="s in gun.printOptions">{{ s }}
                 </ul>
