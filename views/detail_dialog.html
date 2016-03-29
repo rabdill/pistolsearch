@@ -29,6 +29,7 @@
               <div layout="column" flex="33">
                 <h3>Details</h3>
                 <ul>
+                  <li ng-if="gun.msrp"><strong>MSRP:</strong> ${{ gun.msrp }}
                   <li ng-repeat="(key, value) in details"><strong>{{ key }}:</strong> {{ gun[value] }}
                   <li ng-repeat="s in gun.printOptions">{{ s }}
                 </ul>
@@ -44,7 +45,7 @@
             		<dl>
             			<span ng-repeat="fam in gun.families">
             				<dt>{{ fam.name }}:</dt>
-            				<dd ng-repeat="member in fam.members | filter: {id: '!' + id} : true"><a ng-href="#/{{ member.id }}" ng-click="cancel()">{{ member.manufacturer }} {{ member.name }}</a></dd>
+            				<dd ng-repeat="member in fam.members | filter: {id: '!' + id} : true"><a ng-href="#/{{ member.id }}" ng-click="cancel()">{{ member.manufacturer }} {{ member.name }}<span ng-if="member.subname"> &ndash; {{ member.subname }}</span></a></dd>
             			</span>
             		</dl>
               </div>

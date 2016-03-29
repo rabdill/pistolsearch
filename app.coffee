@@ -1,12 +1,12 @@
-app = angular.module('pistolSearch', [
-	'ngRoute',
-	'ngAnimate',
-	'ngMaterial',
-	'gunData',
-]);
+app = angular.module 'pistolSearch', [
+	'ngRoute'
+	'ngAnimate'
+	'ngMaterial'
+	'gunData'
+]
 
 
-app.config(['$routeProvider', function($routeProvider) {
+app.config ['$routeProvider', ($routeProvider) ->
 	$routeProvider.
 		when('/', {
 			templateUrl: 'views/main.html',
@@ -28,13 +28,12 @@ app.config(['$routeProvider', function($routeProvider) {
 		}).
 
 		otherwise({redirectTo: '/'});
-}]);
+]
 
-app.config(['$httpProvider', function($httpProvider) {
-	$httpProvider.defaults.useXDomain = true;
+app.config ['$httpProvider', ($httpProvider) ->
+	$httpProvider.defaults.useXDomain = true
 	delete $httpProvider.defaults.headers.common['X-Requested-With'];
-}]);
+]
 
-app.factory("_", function( $window ) {
-	return $window._;
-});
+app.factory "_", ($window) ->
+	return $window._
