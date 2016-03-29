@@ -1849,6 +1849,17 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			]
 		}
 		{
+			"id" : "ruger-sr22threaded"
+			"variant" : "ruger-sr22threaded"
+			"description" : "The .22-caliber variant in Ruger's long-standing SR line. The slide is aluminum, not steel."
+			"options" : [
+				"safety"
+				"rail"
+				"decocker"
+				"threaded"
+			]
+		}
+		{
 			"id" : "glock-43"
 			"manufacturer" : "Glock"
 			"name" : "43"
