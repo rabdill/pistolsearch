@@ -45,7 +45,7 @@
             		<dl>
             			<span ng-repeat="fam in gun.families">
             				<dt>{{ fam.name }}:</dt>
-            				<dd ng-repeat="member in fam.members | filter: {id: '!' + id} : true"><a ng-href="#/{{ member.id }}" ng-click="cancel()">{{ member.manufacturer }} {{ member.name }}</a></dd>
+            				<dd ng-repeat="member in fam.members | filter: {id: '!' + id} : true"><a ng-href="#/{{ member.id }}" ng-click="cancel()">{{ member.manufacturer }} {{ member.name }}<span ng-if="member.subname"> &ndash; {{ member.subname }}</span></a></dd>
             			</span>
             		</dl>
               </div>

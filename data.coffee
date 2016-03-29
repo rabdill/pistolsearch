@@ -228,7 +228,7 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"id" : "CZ-75Bthreaded"
 			"manufacturer" : "CZ"
 			"name" : "75 B Ω"
-			"subname" : "Suppressor-Ready (safety)"
+			"subname" : "Suppressor-Ready, safety"
 			"description" : "A modified CZ 75 B with the new Omega trigger system and a threaded barrel. Includes a standard manual safety that can be swapped out for a decocker."
 			"image" : "/img/cz-75bthreaded.png"
 			"link" : "http://cz-usa.com/product/cz-75-b-%CF%89-urban-grey-suppressor-ready-omega/"
@@ -256,7 +256,7 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"id" : "CZ-75Bthreaded-ns"
 			"variant" : "CZ-75Bthreaded"
 			"name" : "75 B Ω"
-			"subname" : "Suppressor-Ready (decocker)"
+			"subname" : "Suppressor-Ready, decocker"
 			"options" : [
 				"decocker"
 				"firing pin"
@@ -1848,6 +1848,273 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 				"https://www.youtube.com/embed/FWNRG7xBPPk"
 			]
 		}
+		{
+			"id" : "glock-43"
+			"manufacturer" : "Glock"
+			"name" : "43"
+			"description" : "Anchor of the \"slimline\" series, the long-awaited single-stack Glock in 9."
+			"image" : "/img/glock-43.png"
+			"link" : "https://us.glock.com/products/model/g43"
+			"caliber" : "9mm"
+			"frame" : "polymer"
+			"trigger" : "striker"
+			"capacity" : 6
+			"magazine" : "single"
+			"dimensions" :
+				"barrel" : 3.39
+				"overall" : 6.26
+				"height" : 4.25
+				"width" : 1.02
+				"weight" : 17.95
+			"options" : [
+				"trigger"
+				"firing pin"
+				"drop"
+			]
+			"youtube" : [
+				"https://www.youtube.com/embed/c5BznRK2dRA"
+				"https://www.youtube.com/embed/H6CVf1TKZyE"
+				"https://www.youtube.com/embed/8pHdg4F15aQ"
+			]
+		}
+		{
+			"id" : "glock-42"
+			"manufacturer" : "Glock"
+			"name" : "42"
+			"description" : "The first single-stack Glock released in the 2010s, and the only .380 currently in the consumer lineup."
+			"image" : "/img/glock-42.png"
+			"link" : "https://us.glock.com/products/model/g42"
+			"caliber" : ".380 ACP"
+			"frame" : "polymer"
+			"trigger" : "striker"
+			"capacity" : 6
+			"magazine" : "single"
+			"dimensions" :
+				"barrel" : 3.25
+				"overall" : 5.94
+				"height" : 4.13
+				"width" : 0.94
+				"weight" : 13.76
+			"options" : [
+				"trigger"
+				"firing pin"
+				"drop"
+			]
+			"youtube" : [
+				"https://www.youtube.com/embed/TevjYfFe49s"
+				"https://www.youtube.com/embed/LskihWv3ALw"
+				"https://www.youtube.com/embed/_ZOkPAET86c"
+			]
+		}
+		{
+			"id" : "glock-36"
+			"manufacturer" : "Glock"
+			"name" : "36"
+			"description" : "The original \"slimline\" Glock, in .45."
+			"image" : "/img/glock-36.png"
+			"link" : "https://us.glock.com/products/model/g36"
+			"caliber" : ".45 ACP"
+			"frame" : "polymer"
+			"trigger" : "striker"
+			"capacity" : 6
+			"magazine" : "single"
+			"dimensions" :
+				"barrel" : 3.77
+				"overall" : 6.96
+				"height" : 4.76
+				"width" : 1.10
+				"weight" : 22.42
+			"options" : [
+				"trigger"
+				"firing pin"
+				"drop"
+			]
+			"youtube" : [
+				"https://www.youtube.com/embed/6dW9fu8kmZI"
+				"https://www.youtube.com/embed/hLCtDtaWSnw"
+				"https://www.youtube.com/embed/7O-GHoHqqsM"
+				"https://www.youtube.com/embed/qprvXMVGqGw"
+				"https://www.youtube.com/embed/bYJgIFQIAy4"
+			]
+		}
+		{
+			"id" : "glock-34"
+			"manufacturer" : "Glock"
+			"name" : "34"
+			"description" : "The longer, competition-minded sibling of the classic Glock 17 in 9mm, with near-identical dimensions to the .40-caliber Glock 35."
+			"image" : "/img/glock-34.png"
+			"link" : "https://us.glock.com/products/model/g34gen4"
+			"caliber" : "9mm"
+			"frame" : "polymer"
+			"trigger" : "striker"
+			"capacity" : 17
+			"magazine" : "double"
+			"dimensions" :
+				"barrel" : 5.31
+				"overall" : 8.74
+				"height" : 5.43
+				"width" : 1.18
+				"weight" : 25.95
+			"options" : [
+				"trigger"
+				"firing pin"
+				"drop"
+				"rail"
+			]
+			"youtube" : [
+				"https://www.youtube.com/embed/BTJfnuhKBc4"
+				"https://www.youtube.com/embed/unh_RoCkjz8"
+				"https://www.youtube.com/embed/gPW-sfPWzOo"
+			]
+		}
+		{
+			"id" : "glock-35"
+			"manufacturer" : "Glock"
+			"name" : "35"
+			"description" : "The longer, competition-minded sibling of the Glock 22 in .40, with near-identical dimensions to the 9mm Glock 34."
+			"image" : "/img/glock-35.png"
+			"link" : "https://us.glock.com/products/model/g35gen4"
+			"caliber" : ".40 S&W"
+			"frame" : "polymer"
+			"trigger" : "striker"
+			"capacity" : 15
+			"magazine" : "double"
+			"dimensions" :
+				"barrel" : 5.31
+				"overall" : 8.74
+				"height" : 5.43
+				"width" : 1.18
+				"weight" : 27.53
+			"options" : [
+				"trigger"
+				"firing pin"
+				"drop"
+				"rail"
+			]
+			"youtube" : [
+				"https://www.youtube.com/embed/jTSAKHPRrl0"
+				"https://www.youtube.com/embed/oiBpg71Bul8"
+				"https://www.youtube.com/embed/fwNiTLk91X4"
+				"https://www.youtube.com/embed/vrnnwlJ2vT8"
+			]
+		}
+		{
+			"id" : "glock-41"
+			"manufacturer" : "Glock"
+			"name" : "41"
+			"description" : "The longer, competition-minded sibling of the Glock 20 in .45."
+			"image" : "/img/glock-41.png"
+			"link" : "https://us.glock.com/products/model/g41gen4"
+			"caliber" : ".45 ACP"
+			"frame" : "polymer"
+			"trigger" : "striker"
+			"capacity" : 13
+			"magazine" : "double"
+			"dimensions" :
+				"barrel" : 5.31
+				"overall" : 8.80
+				"height" : 5.47
+				"width" : 1.28
+				"weight" : 27.0
+			"options" : [
+				"trigger"
+				"firing pin"
+				"drop"
+				"rail"
+			]
+			"youtube" : [
+				"https://www.youtube.com/embed/eStUpDS-8wc"
+				"https://www.youtube.com/embed/95YAUBUK4rA"
+				"https://www.youtube.com/embed/dbqovRFSjV0"
+			]
+		}
+		{
+			"id" : "glock-17L"
+			"manufacturer" : "Glock"
+			"name" : "17L"
+			"variant" : "Glock17-4"
+			"description" : "The \"long-slide\" version of the Glock 17, with a lighter trigger and adjustable rear sights. Discontinued in favor of the Glock 34."
+			"image" : "/img/glock-17L.png"
+			"link" : "https://us.glock.com/products/model/g17l"
+			"dimensions" :
+				"barrel" : 6.02
+				"overall" : 9.57
+				"height" : 5.43
+				"width" : 1.18
+				"weight" : 23.63
+			"options" : [
+				"trigger"
+				"firing pin"
+				"drop"
+				"rail"
+			]
+			"youtube" : [
+				"https://www.youtube.com/embed/UYuPEfPb_wc"
+				"https://www.youtube.com/embed/tHTBPEtrDO8"
+				"https://www.youtube.com/embed/OPp0N1wtz10"
+			]
+			"amazon" : [
+			]
+		}
+		{
+			"id" : "glock-24"
+			"manufacturer" : "Glock"
+			"name" : "24"
+			"description" : "Glock's first competition gun, the discontinued version of the Glock 35 in .40."
+			"image" : "/img/glock-24.png"
+			"link" : "https://us.glock.com/products/model/g24"
+			"caliber" : ".40 S&W"
+			"frame" : "polymer"
+			"trigger" : "striker"
+			"capacity" : 15
+			"magazine" : "double"
+			"dimensions" :
+				"barrel" : 6.02
+				"height" : 5.43
+				"overall" : 8.83
+				"width" : 1.18
+				"weight" : 26.7
+			"options" : [
+				"trigger"
+				"firing pin"
+				"drop"
+				"rail"
+			]
+			"youtube" : [
+				"https://www.youtube.com/embed/vCwT7K7sPKQ"
+				"https://www.youtube.com/embed/dd848bus9aE"
+			]
+		}
+			{
+				"id" : "glock-40"
+				"manufacturer" : "Glock"
+				"name" : "40"
+				"description" : "Glock's 10mm competition gun."
+				"image" : "/img/glock-40.png"
+				"link" : "https://us.glock.com/products/model/g40gen4mos"
+				"caliber" : "10mm"
+				"frame" : "polymer"
+				"trigger" : "striker"
+				"capacity" : 15
+				"magazine" : "double"
+				"dimensions" :
+					"barrel" : 6.02
+					"height" : 5.47
+					"overall" : 9.49
+					"width" : 1.28
+					"weight" : 28.15
+				"options" : [
+					"trigger"
+					"firing pin"
+					"drop"
+					"rail"
+				]
+				"youtube" : [
+					"https://www.youtube.com/embed/lwGrpePCYeI"
+					"https://www.youtube.com/embed/0LUJZ1qWUrM"
+					"https://www.youtube.com/embed/Lvt2pxSGABg"
+				]
+			}
 	]
 
 	# massage the datas:
