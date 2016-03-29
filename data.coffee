@@ -2244,5 +2244,59 @@ app.factory 'WIZARD', ->
 				"description" : "A heavier bullet, fired at lower velocities. The famed M1911 designed by John Browning is chambered in .45 and was the standard-issue sidearm of the U.S. Army through two world wars and the majority of the 20th century. Its increased diameter is usually associated either with reduced magazine capacity or grip sizes notably larger than smaller-caliber handguns."
 			}
 		]
+		framePrompts: [
+			{
+				"name" : "steel"
+				"description" : "The traditional material for constructing modern handguns, but also the heaviest. Those considering concealed carry may want to investigate aluminum or polymer frames, for reduced weight without reduced firepower. The extra heft, however, can be helpful otherwise: In addition to increased toughness, weighty steel frames can help absorb the recoil of the bigger calibers that might otherwise be less manageable."
+			}
+			{
+				"name" : "polymer"
+				"description" : "The revolution led by Glock and its space-age plastics changed the face of pistols the world over: Though almost all handguns still have steel slides, polymer frames are markedly lighter than their metallic counterparts. For example: A full-size .45-caliber 1911 could weigh in at about 44 ounces, while a Smith & Wesson M&P in the same caliber (but with a polymer frame) weighs 27.7 ounces – 37 percent lighter."
+			}
+			{
+				"name" : "aluminum alloy"
+				"description" : "The \"middle ground\" between the dense steel alloys and the polymers. The steel versus aluminum debate is had more often in discussions about revolvers, but Beretta and CZ offer well-respected guns built using it."
+			}
+		]
+		triggerPrompts: [
+			{
+				"name" : "hammer SA/DA"
+				"description" : "\"SA/DA\" is short for \"single-action/double-action,\" which refers to the number of actions the trigger will take with one pull: \"Double action\" means the trigger can perform two acts: First, it pulls the hammer back, cocking the weapon. Then, it releases the hammer, sending it forward quickly and firing the round. \"Single action\" is only the second half of that: Pulling the trigger releases the trigger and sends it forward to fire the gun, but it needs to have been cocked by some other mechanism, such as your finger.<p>\"SA/DA\" means the gun can operate in either mode: If the gun is not cocked, pulling the trigger gives you the double-action pull that does both actions. If you want a \"single-action trigger pull,\" – almost invariably shorter and easier than a double-action one – you can cock the hammer back by hand.<p>There is another way to get the single-action pull, too: On semi-automatic SA/DA guns, firing the gun causes the slide to \"cycle,\" which does several things: It will eject the spent case and load the next round into the chamber, but it also cocks the hammer on its way rearward. This means that even if your first trigger pull is double-action, all subsequent pulls will be single action. This benefit is sometimes cited as a negative, however, because it requires users train on two different \"pulls,\" essentially turning the act of pulling the trigger into two very different acts."
+			}
+			{
+				"name" : "hammer SA"
+				"description" : "A single-action handgun is one that requires the hammer be cocked before the trigger will do anything – if the hammer is down, the trigger won't pull it backwards, so you need to either rack the slide or pull the trigger back manually. In modern handguns, the single-action trigger mechanism is usually only seen on the more faithful reproductions of the classic G.I. \"1911\" design, carried by the U.S. military for 75 years."
+			}
+			{
+				"name" : "hammer SA"
+				"description" : "A single-action handgun is one that requires the hammer be cocked before the trigger will do anything – if the hammer is down, the trigger won't pull it backwards, so you need to either rack the slide or pull the trigger back manually. In modern handguns, the single-action trigger mechanism is usually only seen on the more faithful reproductions of the classic G.I. \"1911\" design, carried by the U.S. military for 75 years."
+			}
+			{
+				"name" : "striker"
+				"description" : "Striker-fired handguns are the most modern variant commonly sold on the market – they do away with the hammer altogether, instead driving the firing pin into the round using a spring-loaded piston. Almost all polymer handguns use a striker, and the ones that don't have internal hammers."
+			}
+		]
+		featurePrompts: [
+			{
+				"name" : "Front accessory rail"
+				"description" : "A small rail molded into the front of the gun, under the barrel. Used to attach accessories such as flashlights or lasers."
+			}
+			{
+				"name" : "Decocker"
+				"description" : "Occasionally installed in place of a safety on hammer-fired handguns, it provides a way to safely lower the hammer from a cocked position without pulling the trigger to release it. Some say its presence negatively affects trigger pull."
+			}
+			{
+				"name" : "Threaded barrel"
+				"description" : "An extended barrel that sticks out a short distance in front of the slide, used mostly as a socket for a suppressor."
+			}
+			{
+				"name" : "Thumb safety"
+				"description" : "The traditional \"safety\" that people think of when they hear one referred to. Either on the left side or both sides, it's designed to be articulated by the thumb and disable the trigger when engaged. Some oppose their use, specifically on carry weapons, because they add a point of failure and open the carrier to the risk of forgetting to disengage it before firing."
+			}
+			{
+				"name" : "Grip safety"
+				"description" : "Another vestige of the 1911 design. Effectively a small metal or plastic pad on the back of the gun's grip, pushed in by the user's hand when they are holding the pistol in a firing grip. Not commonly included on modern designs."
+			}
+		]
 
 	return self;
