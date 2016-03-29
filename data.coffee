@@ -118,13 +118,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "hammer SA/DA"
 			"capacity" : 16
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.6
 				"overall" : 8.1
 				"height" : 5.4
 				"width" : 1.4
 				"weight" : 35
-			}
 			"options" : [
 				"safety"
 				"firing pin"
@@ -209,13 +208,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "hammer SA/DA"
 			"capacity" : 18
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.6
 				"overall" : 8.15
 				"height" : 5.79
 				"width" : 1.46
 				"weight" : 39
-			}
 			"options" : [
 				"rail"
 				"safety"
@@ -239,13 +237,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "hammer SA/DA"
 			"capacity" : 16
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 5.2
 				"overall" : 8.8
 				"height" : 6.1
 				"width" : 1.4
 				"weight" : 42
-			}
 			"options" : [
 				"safety"
 				"firing pin"
@@ -278,13 +275,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 17
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.48
 				"overall" : 7.95
 				"height" : 5.4
 				"width" : 1.18
 				"weight" : 25.06
-			}
 			"options" : [
 				"trigger"
 				"firing pin"
@@ -314,13 +310,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 15
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.01
 				"overall" : 7.28
 				"height" : 4.99
 				"width" : 1.18
 				"weight" : 23.65
-			}
 			"options" : [
 				"trigger"
 				"firing pin"
@@ -348,13 +343,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 10
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.42
 				"overall" : 6.41
 				"height" : 4.17
 				"width" : 1.18
 				"weight" : 21.71
-			}
 			"options" : [
 				"trigger"
 				"firing pin"
@@ -380,13 +374,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 15
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.48
 				"overall" : 7.95
 				"height" : 5.43
 				"width" : 1.18
 				"weight" : 25.59
-			}
 			"options" : [
 				"trigger"
 				"firing pin"
@@ -396,7 +389,7 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"youtube" : [
 				"https://www.youtube.com/embed/R1ePVd6hKeE"
 				"https://www.youtube.com/embed/jolIaRoOI_g"
-				"https://www.youtube.com/embed/ODt-bW1eD5M",	# also for M&P 40
+				"https://www.youtube.com/embed/ODt-bW1eD5M"	# also for M&P 40
 			]
 			"amazon" : [
 				"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=pistsear-20&marketplace=amazon&region=US&placement=B016ISRE88&asins=B016ISRE88&linkId=MCB4IHD36N4MAGVN&show_border=true&link_opens_in_new_window=true"
@@ -416,13 +409,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 13
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.01
 				"overall" : 7.21
 				"height" : 4.99
 				"width" : 1.18
 				"weight" : 23.65
-			}
 			"options" : [
 				"trigger"
 				"firing pin"
@@ -449,13 +441,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 9
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.42
 				"overall" : 6.41
 				"height" : 4.17
 				"width" : 1.18
 				"weight" : 21.89
-			}
 			"options" : [
 				"trigger"
 				"firing pin"
@@ -482,13 +473,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 15
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.6
 				"overall" : 8.03
 				"height" : 5.47
 				"width" : 1.27
 				"weight" : 30.71
-			}
 			"options" : [
 				"trigger"
 				"firing pin"
@@ -514,13 +504,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 10
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 1.26
 				"overall" : 6.88
 				"height" : 4.45
 				"width" : 1.27
 				"weight" : 26.83
-			}
 			"options" : [
 				"trigger"
 				"firing pin"
@@ -545,13 +534,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 13
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.6
 				"overall" : 8.03
 				"height" : 5.47
 				"width" : 1.27
 				"weight" : 29.3
-			}
 			"options" : [
 				"trigger"
 				"firing pin"
@@ -559,7 +547,7 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 				"rail"
 			]
 			"youtube" : [
-				"https://www.youtube.com/embed/jo317hYV-ag",	# also springfield xdm
+				"https://www.youtube.com/embed/jo317hYV-ag"	# also springfield xdm
 				"https://www.youtube.com/embed/Eynv1q_Ttb0"
 				"https://www.youtube.com/embed/iOIHgwVDy-U"
 				"https://www.youtube.com/embed/vvHZFNGz7xg"
@@ -577,13 +565,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 10
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.77
 				"overall" : 6.88
 				"height" : 4.8
 				"width" : 1.27
 				"weight" : 26.3
-			}
 			"options" : [
 				"trigger"
 				"firing pin"
@@ -608,13 +595,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 10
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.48
 				"overall" : 7.95
 				"height" : 5.51
 				"width" : 1.18
 				"weight" : 28.95
-			}
 			"options" : [
 				"trigger"
 				"firing pin"
@@ -638,13 +624,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 8
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.01
 				"overall" : 7.36
 				"height" : 4.99
 				"width" : 1.18
 				"weight" : 26.83
-			}
 			"options" : [
 				"trigger"
 				"firing pin"
@@ -668,13 +653,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 6
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.42
 				"overall" : 6.49
 				"height" : 4.17
 				"width" : 1.18
 				"weight" : 24.18
-			}
 			"options" : [
 				"trigger"
 				"firing pin"
@@ -696,13 +680,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "hammer SA"
 			"capacity" : 10
 			"magazine" : "single"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.56
 				"overall" : 6.65
 				"height" : 5.03
 				"width" : 1.48
 				"weight" : 15.3
-			}
 			"options" : [
 				"magazine safety"
 				"safety"
@@ -727,13 +710,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 7
 			"magazine" : "single"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.1
 				"overall" : 6.1
 				"height" : 4.6
 				"width" : 0.95
 				"weight" : 19.0
-			}
 			"options" : [
 
 			]
@@ -755,13 +737,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 7
 			"magazine" : "single"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.1
 				"overall" : 6.1
 				"height" : 4.6
 				"width" : 0.95
 				"weight" : 19.0
-			}
 			"options" : [
 
 			]
@@ -782,13 +763,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "hammer DAO"
 			"capacity" : 6
 			"magazine" : "single"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 2.75
 				"overall" : 5.25
 				"height" : 3.78
 				"width" : 0.795
 				"weight" : 11.85
-			}
 			"options" : [
 				"safety"
 			]
@@ -810,13 +790,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 14
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.0
 				"overall" : 7.2
 				"height" : 0
 				"width" : 1.29
 				"weight" : 22.7
-			}
 			"options" : [
 				"trigger"
 				"rail"
@@ -840,13 +819,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 16
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.0
 				"overall" : 7.2
 				"height" : 0
 				"width" : 1.29
 				"weight" : 22.7
-			}
 			"options" : [
 				"trigger"
 				"rail"
@@ -870,13 +848,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "hammer SA"
 			"capacity" : 10
 			"magazine" : "single"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 5.0
 				"overall" : 8.7
 				"height" : 0
 				"width" : 0
 				"weight" : 41.0
-			}
 			"options" : [
 				"safety"
 				"grip"
@@ -922,13 +899,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"image" : "/img/sw-1911-45-3.jpg"
 			"msrp" : 1229
 			"link" : "http://www.smith-wesson.com/webapp/wcs/stores/servlet/Product4_750001_750051_766210"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.0
 				"overall" : 6.9
 				"height" : 0
 				"width" : 0
 				"weight" : 26.5
-			}
 			"youtube" : [
 				"https://www.youtube.com/embed/W44cdYF2RXg"
 			]
@@ -946,13 +922,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "hammer SA"
 			"capacity" : 10
 			"magazine" : "single"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 5.5
 				"overall" : 10.5
 				"height" : 0
 				"width" : 0
 				"weight" : 41.0
-			}
 			"options" : [
 				"safety"
 			]
@@ -974,13 +949,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 15
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.25
 				"overall" : 7.63
 				"height" : 5.5
 				"width" : 1.2
 				"weight" : 24.25
-			}
 			"options" : [
 				"safety"
 				"trigger"
@@ -1004,13 +978,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 10
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.5
 				"overall" : 6.7
 				"height" : 4.3
 				"width" : 1.2
 				"weight" : 21.9
-			}
 			"options" : [
 				"trigger"
 				"safety"
@@ -1047,13 +1020,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 10
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.5
 				"overall" : 8.05
 				"height" : 0
 				"width" : 0
 				"weight" : 29.6
-			}
 			"options" : [
 				"safety"
 				"trigger"
@@ -1116,13 +1088,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 8
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.0
 				"overall" : 7.55
 				"height" : 0
 				"width" : 1.2
 				"weight" : 26.2
-			}
 			"options" : [
 				"trigger"
 				"rail"
@@ -1160,13 +1131,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 10
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.5
 				"overall" : 6.7
 				"height" : 4.3
 				"width" : 1.2
 				"weight" : 22.2
-			}
 			"options" : [
 				"trigger"
 				"rail"
@@ -1190,13 +1160,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 15
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.25
 				"overall" : 7.63
 				"height" : 0
 				"width" : 0
 				"weight" : 25.5
-			}
 			"options" : [
 				"trigger"
 				"thumb"
@@ -1219,13 +1188,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 17
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.25
 				"overall" : 7.63
 				"height" : 0
 				"width" : 0
 				"weight" : 24.0
-			}
 			"options" : [
 				"thumb"
 				"trigger"
@@ -1260,13 +1228,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 17
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 5.0
 				"overall" : 8.5
 				"height" : 0
 				"width" : 0
 				"weight" : 26.0
-			}
 			"options" : [
 				"trigger"
 				"rail"
@@ -1288,13 +1255,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 12
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.5
 				"overall" : 6.7
 				"height" : 0
 				"width" : 0
 				"weight" : 21.7
-			}
 			"options" : [
 				"thumb"
 				"trigger"
@@ -1331,13 +1297,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "hammer SA/DA"
 			"capacity" : 15
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.9
 				"overall" : 8.5
 				"height" : 5.4
 				"width" : 1.5
 				"weight" : 33.3
-			}
 			"options" : [
 				"safety"
 				"decocker"
@@ -1385,13 +1350,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "hammer SA/DA"
 			"capacity" : 17
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.9
 				"overall" : 8.5
 				"height" : 5.4
 				"width" : 1.5
 				"weight" : 33.9
-			}
 			"options" : [
 				"firing pin block"
 				"decocker"
@@ -1450,13 +1414,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "hammer SA/DA"
 			"capacity" : 15
 			"magazine" : "single"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.9
 				"overall" : 8.5
 				"height" : 5.4
 				"width" : 1.52
 				"weight" : 26.08
-			}
 			"options" : [
 				"safety"
 				"decocker"
@@ -1478,13 +1441,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "hammer SA"
 			"capacity" : 7
 			"magazine" : "single"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 2.75
 				"overall" : 5.16
 				"height" : 3.6
 				"width" : 0.82
 				"weight" : 9.6
-			}
 			"options" : [
 
 			]
@@ -1507,13 +1469,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 7
 			"magazine" : "single"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.12
 				"overall" : 6
 				"height" : 4.5
 				"width" : 0.9
 				"weight" : 17.2
-			}
 			"options" : [
 				"safety"
 				"magazine safety"
@@ -1535,13 +1496,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 7
 			"magazine" : "single"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.12
 				"overall" : 6
 				"height" : 4.5
 				"width" : 0.9
 				"weight" : 17.2
-			}
 			"options" : [
 
 			]
@@ -1562,13 +1522,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 7
 			"magazine" : "single"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.12
 				"overall" : 6
 				"height" : 4.5
 				"width" : 0.9
 				"weight" : 17.2
-			}
 			"options" : [
 
 			]
@@ -1590,13 +1549,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 17
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.14
 				"overall" : 7.5
 				"height" : 5.53
 				"width" : 1.27
 				"weight" : 27.2
-			}
 			"options" : [
 				"safety"
 				"rail"
@@ -1620,15 +1578,14 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 17
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.14
 				"overall" : 7.5
 				"height" : 5.52
 				"width" : 1.27
 				"weight" : 26.5
-			}
 			"options" : [
-				"safety",
+				"safety"
 				"rail"
 			]
 			"youtube" : [
@@ -1650,16 +1607,15 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 10
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.4
 				"overall" : 6.85
 				"height" : 4.61
 				"width" : 1.27
 				"weight" : 23.4
-			}
 			"options" : [
-				"safety",
-				"rail",
+				"safety"
+				"rail"
 				"magazine safety"
 			]
 			"youtube" : [
@@ -1682,16 +1638,15 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 15
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.14
 				"overall" : 7.5
 				"height" : 5.52
 				"width" : 1.27
 				"weight" : 27.2
-			}
 			"options" : [
-				"safety",
-				"rail",
+				"safety"
+				"rail"
 				"magazine safety"
 			]
 			"youtube" : [
@@ -1712,16 +1667,15 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 10
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.5
 				"overall" : 6.85
 				"height" : 4.61
 				"width" : 1.27
 				"weight" : 23.4
-			}
 			"options" : [
-				"safety",
-				"rail",
+				"safety"
+				"rail"
 				"magazine safety"
 			]
 			"youtube" : [
@@ -1743,16 +1697,15 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 10
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.5
 				"overall" : 8.0
 				"height" : 5.75
 				"width" : 1.27
 				"weight" : 30.1
-			}
 			"options" : [
-				"safety",
-				"rail",
+				"safety"
+				"rail"
 				"magazine safety"
 			]
 			"youtube" : [
@@ -1762,12 +1715,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			]
 		}
 		{
-			"id" : "ruger-american9"
+			"id" : "ruger-american-9"
 			"manufacturer" : "Ruger"
 			"name" : "American"
 			"subname" : "9mm"
 			"description" : "Part of Ruger's new line of full-size handgun aimed at the military market. Also available in .45 ACP."
-			"image" : "/img/ruger-american9.jpg"
+			"image" : "/img/ruger-american-9.jpg"
 			"msrp" : 569
 			"link" : "http://ruger.com/products/rugerAmericanPistol/specSheets/8605.html"
 			"caliber" : "9mm"
@@ -1775,13 +1728,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 17
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.2
 				"overall" : 7.5
 				"height" : 5.6
 				"width" : 1.4
 				"weight" : 30.0
-			}
 			"options" : [
 				"rail"
 			]
@@ -1790,12 +1742,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			]
 		}
 		{
-			"id" : "ruger-american45"
+			"id" : "ruger-american-45"
 			"manufacturer" : "Ruger"
 			"name" : "American"
 			"subname" : ".45"
 			"description" : "Part of Ruger's new line of full-size handgun aimed at the military market. Also available in 9mm."
-			"image" : "/img/ruger-american45.jpg"
+			"image" : "/img/ruger-american-45.jpg"
 			"msrp" : 579
 			"link" : "http://ruger.com/products/rugerAmericanPistol/specSheets/8615.html"
 			"caliber" : ".45 ACP"
@@ -1803,13 +1755,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "striker"
 			"capacity" : 10
 			"magazine" : "double"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 4.5
 				"overall" : 8.0
 				"height" : 5.7
 				"width" : 1.4
 				"weight" : 31.5
-			}
 			"options" : [
 				"rail"
 			]
@@ -1831,13 +1782,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "hammer SA"
 			"capacity" : 8
 			"magazine" : "single"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 5.0
 				"overall" : 8.67
 				"height" : 5.45
 				"width" : 1.34
 				"weight" : 39.0
-			}
 			"options" : [
 				"safety"
 				"grip safety"
@@ -1883,13 +1833,12 @@ dataThing.factory 'GUNS', ['PRINTING', 'FAMILIES', '$sce', (PRINTING, FAMILIES, 
 			"trigger" : "hammer SA/DA"
 			"capacity" : 10
 			"magazine" : "single"
-			"dimensions" : {
+			"dimensions" :
 				"barrel" : 3.5
 				"overall" : 6.4
 				"height" : 4.9
 				"width" : 0.97
 				"weight" : 17.5
-			}
 			"options" : [
 				"safety"
 				"rail"
